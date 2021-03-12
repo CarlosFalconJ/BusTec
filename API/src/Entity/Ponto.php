@@ -87,6 +87,7 @@ class Ponto implements \JsonSerializable
     public function jsonSerialize()
     {
        return [
+           "id" => $this->getId(),
            "nome" => $this->getNome(),
            "bairro" => $this->getBairro(),
            "rua" => $this->getRua(),

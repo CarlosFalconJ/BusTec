@@ -57,6 +57,7 @@ class Onibus implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
+            "id" => $this->getId(),
             "placa" => $this->getPlaca(),
             "motorista_responsavel" =>$this->getMotoristaResponsavel()
         ];
