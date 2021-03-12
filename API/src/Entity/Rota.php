@@ -27,6 +27,11 @@ class Rota implements \JsonSerializable
      */
     private $cidade;
 
+    /**
+     * @ORM\Column(type="date", length=255)
+     */
+    private $horario;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,11 +59,24 @@ class Rota implements \JsonSerializable
         $this->cidade = $cidade;
     }
 
+    public function getHorario()
+    {
+        return $this->horario;
+    }
+
+    public function setHorario($horario): void
+    {
+        $this->horario = $horario;
+    }
+
     public function jsonSerialize()
     {
         return [
+            "id" => $this->getId(),
             "nome" => $this->getNome(),
             "cidade" => $this->getCidade()
         ];
     }
+
+
 }
