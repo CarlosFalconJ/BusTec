@@ -1,10 +1,11 @@
 <?php
 
 
-namespace App\Service\Aluno\Storage;
+namespace App\Service\Aluno;
 
 
 use App\Entity\Aluno;
+use App\Service\Aluno\Storage\FormAlunoStorage;
 
 class RegraApagarAluno
 {
