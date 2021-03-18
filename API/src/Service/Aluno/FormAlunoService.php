@@ -93,6 +93,14 @@ class FormAlunoService
         return $alunoInfo;
     }
 
+    public function buscarAluno ($id)
+    {
+        $formAlunoStorage = new FormAlunoStorage($this->em);
+        $alunoInfo = $formAlunoStorage->getAlunoPorId($id);
+
+        return $alunoInfo;
+    }
+
     public function buscarTodos($request)
     {
         $ordenacao = $this->extratorRequest->buscadorDadosOrdenacao($request);
@@ -114,6 +122,8 @@ class FormAlunoService
 
         return $responseFactory->getResponse();
     }
+
+
     
     public function getAluno($id)
     {
