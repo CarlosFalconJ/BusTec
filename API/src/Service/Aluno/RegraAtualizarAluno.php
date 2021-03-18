@@ -6,7 +6,7 @@ namespace App\Service\Aluno;
 
 use App\Entity\Aluno;
 use App\Service\Aluno\Storage\FormAlunoStorage;
-use App\Service\Aluno\Validatiom\AlunoValidation;
+use App\Service\Aluno\Validation\AlunoValidation;
 
 class RegraAtualizarAluno
 {

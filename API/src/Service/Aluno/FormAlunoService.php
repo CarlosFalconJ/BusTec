@@ -11,7 +11,7 @@ use App\Helper\ExtratorDadosDoRequest;
 use App\Helper\ResponseFactory;
 use App\Helper\ResponseHelper;
 use App\Service\Aluno\Storage\FormAlunoStorage;
-use App\Service\Aluno\Validatiom\AlunoValidation;
+use App\Service\Aluno\Validation\AlunoValidation;
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Response;

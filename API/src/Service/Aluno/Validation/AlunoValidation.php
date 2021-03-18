@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Service\Aluno\Validatiom;
+namespace App\Service\Aluno\Validation;
 
 use Symfony\Component\HttpFoundation\Response;
 
