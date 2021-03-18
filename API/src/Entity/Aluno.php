@@ -52,6 +52,11 @@ class Aluno implements \JsonSerializable
      */
     private $numero_casa;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Onibus")
+     * @ORM\JoinColumn(name="id_onibus", referencedColumnName="id")
+     */
+    private $onibus;
 
 
     public function getId(): ?int
@@ -67,7 +72,6 @@ class Aluno implements \JsonSerializable
     public function setNome(string $nome): self
     {
         $this->nome = $nome;
-
         return $this;
     }
 
@@ -76,9 +80,10 @@ class Aluno implements \JsonSerializable
         return $this->email;
     }
 
-    public function setEmail($email): void
+    public function setEmail($email): self
     {
         $this->email = $email;
+        return $this;
     }
 
     public function getNumeroContato()
@@ -86,9 +91,10 @@ class Aluno implements \JsonSerializable
         return $this->numero_contato;
     }
 
-    public function setNumeroContato($numero_contato): void
+    public function setNumeroContato($numero_contato): self
     {
         $this->numero_contato = $numero_contato;
+        return $this;
     }
 
     public function getRa()
@@ -96,9 +102,10 @@ class Aluno implements \JsonSerializable
         return $this->ra;
     }
 
-    public function setRa($ra): void
+    public function setRa($ra): self
     {
         $this->ra = $ra;
+        return $this;
     }
 
     public function getBairro()
@@ -106,9 +113,10 @@ class Aluno implements \JsonSerializable
         return $this->bairro;
     }
 
-    public function setBairro($bairro): void
+    public function setBairro($bairro): self
     {
         $this->bairro = $bairro;
+        return $this;
     }
 
     public function getRua()
@@ -116,9 +124,10 @@ class Aluno implements \JsonSerializable
         return $this->rua;
     }
 
-    public function setRua($rua): void
+    public function setRua($rua): self
     {
         $this->rua = $rua;
+        return $this;
     }
 
     public function getNumeroCasa()
@@ -126,22 +135,35 @@ class Aluno implements \JsonSerializable
         return $this->numero_casa;
     }
 
-    public function setNumeroCasa($numero_casa): void
+    public function setNumeroCasa($numero_casa): self
     {
         $this->numero_casa = $numero_casa;
+        return $this;
+    }
+
+    public function getOnibus()
+    {
+        return $this->onibus;
+    }
+
+    public function setOnibus($onibus): self
+    {
+        $this->onibus = $onibus;
+        return $this;
     }
 
     public function jsonSerialize()
     {
        return [
-           "id" => $this->getId(),
-           "nome" => $this->getNome(),
-           "email" => $this->getEmail(),
-           "numero_contato" => $this->getNumeroContato(),
-           "ra" => $this->getRa(),
-           "bairro" => $this->getBairro(),
-           "rua" => $this->getRua(),
-           "numero_casa" => $this->getNumeroCasa()
+           "id"                 => $this->getId(),
+           "nome"               => $this->getNome(),
+           "email"              => $this->getEmail(),
+           "numero_contato"     => $this->getNumeroContato(),
+           "ra"                 => $this->getRa(),
+           "bairro"             => $this->getBairro(),
+           "rua"                => $this->getRua(),
+           "numero_casa"        => $this->getNumeroCasa(),
+           "id_onibus"          => $this->getOnibus()
        ];
     }
 }
