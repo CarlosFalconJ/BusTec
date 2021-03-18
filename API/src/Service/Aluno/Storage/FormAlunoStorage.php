@@ -29,7 +29,7 @@ class FormAlunoStorage
     public function remove(Aluno $aluno = null)
     {
        if ($aluno){
-           $this->remove($aluno);
+           $this->em->remove($aluno);
            $this->em->flush();
        }
 
