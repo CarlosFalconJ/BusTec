@@ -27,10 +27,6 @@ class Rota implements \JsonSerializable
      */
     private $cidade;
 
-    /**
-     * @ORM\Column(type="date", length=255)
-     */
-    private $horario;
 
     public function getId(): ?int
     {
