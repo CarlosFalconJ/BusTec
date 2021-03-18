@@ -65,7 +65,7 @@ class AlunoController
     public function buscarAluno($id)
     {
         $formAlunoService = new FormAlunoService($this->em, $this->dadosDoRequest);
-        $aluno = $formAlunoService->getAluno($id);
+        $aluno = $formAlunoService->buscarAluno($id);
 
         $response = new ResponseHelper(true, $aluno, Response::HTTP_OK );
         return $response->getResponse();
