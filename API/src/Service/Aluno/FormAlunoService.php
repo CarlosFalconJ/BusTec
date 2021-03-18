@@ -5,6 +5,7 @@ namespace App\Service\Aluno;
 
 
 use App\Entity\Aluno;
+use App\Entity\Onibus;
 use App\Helper\AppError;
 use App\Helper\ExtratorDadosDoRequest;
 use App\Helper\ResponseFactory;
@@ -28,7 +29,7 @@ class FormAlunoService
         $this->extratorRequest = $extratorRequest;
     }
 
-    public function cadastrar($dadosEmJson)
+    public function cadastrar($id_onibus, $dadosEmJson)
     {
         $formAlunoStorage = new FormAlunoStorage($this->em);
 
@@ -41,7 +42,7 @@ class FormAlunoService
         $formAluno->setParseAluno($parseAluno);
         $formAluno->setAlunoStorage($formAlunoStorage);
 
-        $aluno = $this->getNovoAluno();
+        $aluno = $this->getNovoAluno($id_onibus);
         if (!is_null($aluno)){
             $alunoInfo = $formAluno->cadastrar($dadosEmJson, $aluno);
         }
@@ -86,7 +87,6 @@ class FormAlunoService
             return new \Exception("Aluno inexistente", Response::HTTP_NOT_FOUND);
         } else {
             $formAlunoStorage = new FormAlunoStorage($this->em);
-
             $formAluno = new RegraApagarAluno($formAlunoStorage);
             $alunoInfo = $formAluno->apagar($aluno);
         }
@@ -122,12 +122,24 @@ class FormAlunoService
         $sistemaAlunoRepository = $this->em->getRepository(Aluno::class);
         $aluno = $sistemaAlunoRepository->find($id);
 
-        return$aluno;
+        return $aluno;
     }
 
-    public function getNovoAluno()
+    public function getNovoAluno($onibus)
     {
-        $aluno = new Aluno();
+        $id_onibus = isset($onibus) ? $onibus : 0;
+        $aluno = null;
+        $onibusValido = ($id_onibus > 0);
+
+        if ($onibusValido){
+            $aluno = new Aluno();
+
+            $onibus = $this->em->getReference(Onibus::class, $id_onibus);
+
+            $aluno->setOnibus($onibus);
+        } else {
+            return new \Exception("Onubus invalido", Response::HTTP_NOT_FOUND);
+        }
 
         return $aluno;
 
