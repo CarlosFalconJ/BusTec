@@ -25,6 +25,6 @@ class AlunoValidation
         }elseif (empty($dadosJson->numero_casa)){
             return new \Exception("O campo (numero_casa) não pode ser vazio", Response::HTTP_BAD_REQUEST);
         }
-
+        return true;
     }
 }
