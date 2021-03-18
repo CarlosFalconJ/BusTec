@@ -1,3 +1,26 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+## Rotas de Alunos ##
+
+adicionar_aluno:
+   path: /onibus/{id_onibus}/aluno
+   controller: App\Controller\AlunoController::insertAluno
+   methods: POST
+
+buscar_todos_alunos:
+   path: /buscar/todos/alunos
+   controller: App\Controller\AlunoController::buscarTodosAlunos
+   methods: GET
+
+atualizar_aluno:
+   path: /aluno/{id}
+   controller: App\Controller\AlunoController::updateAluno
+   methods: PUT
+
+deletar_aluno:
+   path: /aluno/{id}
+   controller: App\Controller\AlunoController::deleteAluno
+   methods: DELETE
+
+buscar_um_aluno:
+   path: /busca/aluno/{id}
+   controller: App\Controller\AlunoController::buscarAluno
+   methods: GET
