@@ -36,10 +36,8 @@ class FormAlunoStorage
        return $aluno;
     }
 
-    public function getAlunoPorId($data)
+    public function getAlunoPorId($id)
     {
-        $id = (isset($data['id'])) ? $data['id'] : 0;
-
         $alunoRepository = $this->em->getRepository(Aluno::class);
         $aluno = $alunoRepository->find($id);
 
