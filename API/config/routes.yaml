@@ -79,3 +79,29 @@ buscar_uma_rota:
    controller: App\Controller\RotaController::buscarRota
    methods: GET
 
+## Routes de Pontos ##
+
+adicionar_ponto:
+   path: /ponto
+   controller: App\Controller\PontoController::insertPonto
+   methods: POST
+
+buscar_todos_pontos:
+   path: /buscar/todos/pontos
+   controller: App\Controller\PontoController::buscarTodosPontos
+   methods: GET
+
+atualizar_ponto:
+   path: /ponto/{id}
+   controller: App\Controller\PontoController::updatePonto
+   methods: PUT
+
+deletar_ponto:
+   path: /ponto/{id}
+   controller: App\Controller\PontoController::deletePonto
+   methods: DELETE
+
+buscar_um_pontp:
+   path: /busca/ponto/{id}
+   controller: App\Controller\PontoController::buscarPonto
+   methods: GET
