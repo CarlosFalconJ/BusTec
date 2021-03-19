@@ -4,17 +4,9 @@
 namespace App\Service\Onibus;
 
 
-use App\Entity\Aluno;
 use App\Entity\Onibus;
-use App\Entity\RotaOnibus;
 use App\Helper\ExtratorDadosDoRequest;
 use App\Helper\ResponseHelper;
-use App\Service\Aluno\ParserAluno;
-use App\Service\Aluno\RegraApagarAluno;
-use App\Service\Aluno\RegraAtualizarAluno;
-use App\Service\Aluno\RegraCadastrarAluno;
-use App\Service\Aluno\Storage\FormAlunoStorage;
-use App\Service\Aluno\Validation\AlunoValidation;
 use App\Service\Onibus\Storage\FormOnibusStorage;
 use App\Service\Onibus\Validation\OnibusValidation;
 use Doctrine\DBAL\Exception\ConnectionException;
@@ -42,16 +34,16 @@ class FormOnibusService
         $parseOnibus = new ParserOnibus();
 
         $formOnibus = new RegraCadastrarOnibus();
-        $formOnibus->setAlunoValidation($onibusValidation);
-        $formOnibus->setParseAluno($parseOnibus);
-        $formOnibus->setAlunoStorage($formOnibusStorage);
+        $formOnibus->setOnibusalidation($onibusValidation);
+        $formOnibus->setParseOnibus($parseOnibus);
+        $formOnibus->setOnibusStorage($formOnibusStorage);
 
         $onibus = $this->getNovoOnibus();
         if (!is_null($onibus)){
-            $alunoInfo = $formOnibus->cadastrar($dadosEmJson, $onibus);
+            $onibusInfo = $formOnibus->cadastrar($dadosEmJson, $onibus);
         }
 
-        return $alunoInfo;
+        return $onibusInfo;
     }
 
     public function atualizar($dadosEmJson, $id)
@@ -70,9 +62,9 @@ class FormOnibusService
 
 
             $formOnibus = new RegraAtualizarOnibus();
-            $formOnibus->setAlunoValidation($onibusValidation);
-            $formOnibus->setParseAluno($parseOnibus);
-            $formOnibus->setAlunoStorage($formOnibusStorage);
+            $formOnibus->setOnibusValidation($onibusValidation);
+            $formOnibus->setParseOnibus($parseOnibus);
+            $formOnibus->setAOnibusStorage($formOnibusStorage);
 
             $onibusInfo = $formOnibus->atualizar($dadosEmJson, $onibus);
         } else {
@@ -134,10 +126,10 @@ class FormOnibusService
     {
         $id = isset($id) ? $id : 0;
 
-        $sistemaAlunoRepository = $this->em->getRepository(Aluno::class);
-        $aluno = $sistemaAlunoRepository->find($id);
+        $onibusRepository = $this->em->getRepository(Onibus::class);
+        $onibus = $onibusRepository->find($id);
 
-        return $aluno;
+        return $onibus;
     }
 
     public function getNovoOnibus()
