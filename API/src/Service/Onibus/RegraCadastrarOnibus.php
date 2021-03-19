@@ -42,6 +42,6 @@ class RegraCadastrarOnibus
             $onibusInfo = $onibus->jsonSerialize();
         }
 
-        return$onibusInfo;
+        return $onibusInfo;
     }
 }
