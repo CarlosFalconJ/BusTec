@@ -31,6 +31,14 @@ class RotaPonto
     private $ponto;
 
 
+    /**
+     * @var datetime
+     * @ORM\Column(type="datetime")
+     */
+    private $horario;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -56,5 +64,15 @@ class RotaPonto
     {
         $this->ponto = $ponto;
         return $this;
+    }
+
+    public function getHorario()
+    {
+        return $this->horario;
+    }
+
+    public function setHorario($horario): void
+    {
+        $this->horario = $horario;
     }
 }
