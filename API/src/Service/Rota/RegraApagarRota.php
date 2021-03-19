@@ -18,10 +18,10 @@ class RegraApagarRota
 
     public function apagar(Rota $rota = null)
     {
-        $rota = null;
+        $rotaInfo = null;
 
         $this->storage->remove($rota);
 
-        return $rota;
+        return $rotaInfo;
     }
 }
