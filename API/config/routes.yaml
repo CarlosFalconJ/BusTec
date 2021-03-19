@@ -51,3 +51,31 @@ buscar_um_onibus:
    path: /busca/onibus/{id}
    controller: App\Controller\OnibusController::buscarOnibus
    methods: GET
+
+## Routes de Rotas ##
+
+adicionar_rota:
+   path: /rota
+   controller: App\Controller\RotaController::insertRota
+   methods: POST
+
+buscar_todas_rotas:
+   path: /buscar/todas/rotas
+   controller: App\Controller\RotaController::buscarTodasRotas
+   methods: GET
+
+atualizar_rota:
+   path: /rota/{id}
+   controller: App\Controller\RotaController::updateRota
+   methods: PUT
+
+deletar_rota:
+   path: /rota/{id}
+   controller: App\Controller\RotaController::deleteRota
+   methods: DELETE
+
+buscar_uma_rota:
+   path: /busca/rota/{id}
+   controller: App\Controller\RotaController::buscarRota
+   methods: GET
+
