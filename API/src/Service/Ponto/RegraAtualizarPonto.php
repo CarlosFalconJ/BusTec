@@ -31,7 +31,7 @@ class RegraAtualizarPonto
         $this->storage = $storage;
     }
 
-    public function cadastrar($dadosJson, Ponto $ponto)
+    public function atualizar($dadosJson, Ponto $ponto)
     {
         $dadosJsonIsValid = $this->pontoValidation->validate($dadosJson);
 
