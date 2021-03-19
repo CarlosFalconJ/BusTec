@@ -18,10 +18,10 @@ class RegraApagarOnibus
 
     public function apagar(Onibus $onibus = null)
     {
-        $alunoInfo = null;
+        $onibusInfo = null;
 
         $this->storage->remove($onibus);
 
-        return $alunoInfo;
+        return $onibusInfo;
     }
 }
