@@ -129,8 +129,8 @@ class FormAlunoService
     {
         $id = isset($id) ? $id : 0;
 
-        $sistemaAlunoRepository = $this->em->getRepository(Aluno::class);
-        $aluno = $sistemaAlunoRepository->find($id);
+        $alunoRepository = $this->em->getRepository(Aluno::class);
+        $aluno = $alunoRepository->find($id);
 
         return $aluno;
     }
