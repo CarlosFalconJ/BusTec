@@ -12,33 +12,33 @@ class RegraAtualizarOnibus
 {
     private $storage;
 
-    private $alunoValidation;
+    private $onibusValidation;
 
     private $parser;
 
-    public function setAlunoValidation(OnibusValidation $validation)
+    public function setOnibusValidation(OnibusValidation $validation)
     {
-        $this->alunoValidation = $validation;
+        $this->onibusValidation = $validation;
     }
 
-    public function setParseAluno(ParserOnibus $parser)
+    public function setParseOnibus(ParserOnibus $parser)
     {
         $this->parser = $parser;
     }
 
-    public function setAlunoStorage(FormOnibusStorage $storage)
+    public function setAOnibusStorage(FormOnibusStorage $storage)
     {
         $this->storage = $storage;
     }
 
     public function atualizar($dadosJson, Onibus $onibus)
     {
-        $dadosJsonIsValid = $this->alunoValidation->validate($dadosJson);
+        $dadosJsonIsValid = $this->onibusValidation->validate($dadosJson);
 
         $onibusInfo = [];
 
         if ($dadosJsonIsValid){
-            $this->parser->setAlunoFromData($dadosJson, $onibus);
+            $this->parser->setOnibusFromData($dadosJson, $onibus);
             $this->storage->save($onibus);
             $onibusInfo = $onibus->jsonSerialize();
         }
