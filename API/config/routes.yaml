@@ -1,4 +1,4 @@
-## Rotas de Alunos ##
+## Routes de Alunos ##
 
 adicionar_aluno:
    path: /onibus/{id_onibus}/aluno
@@ -23,4 +23,31 @@ deletar_aluno:
 buscar_um_aluno:
    path: /busca/aluno/{id}
    controller: App\Controller\AlunoController::buscarAluno
+   methods: GET
+
+## Routes de Onibus ##
+
+adicionar_onibus:
+   path: /onibus
+   controller: App\Controller\OnibusController::insertOnibus
+   methods: POST
+
+buscar_todos_onibus:
+   path: /buscar/todos/onibus
+   controller: App\Controller\OnibusController::buscarTodosOnibus
+   methods: GET
+
+atualizar_onibus:
+   path: /onibus/{id}
+   controller: App\Controller\OnibusController::updateOnibus
+   methods: PUT
+
+deletar_onibus:
+   path: /onibus/{id}
+   controller: App\Controller\OnibusController::deleteOnibus
+   methods: DELETE
+
+buscar_um_onibus:
+   path: /busca/onibus/{id}
+   controller: App\Controller\OnibusController::buscarOnibus
    methods: GET
