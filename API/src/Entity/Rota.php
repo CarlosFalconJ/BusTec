@@ -55,16 +55,6 @@ class Rota implements \JsonSerializable
         $this->cidade = $cidade;
     }
 
-    public function getHorario()
-    {
-        return $this->horario;
-    }
-
-    public function setHorario($horario): void
-    {
-        $this->horario = $horario;
-    }
-
     public function jsonSerialize()
     {
         return [
