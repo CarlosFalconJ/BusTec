@@ -12,32 +12,32 @@ class RegraCadastrarOnibus
 {
     private $storage;
 
-    private $alunoValidation;
+    private $onibusValidation;
 
     private $parser;
 
-    public function setAlunoValidation(OnibusValidation $validation)
+    public function setOnibusalidation(OnibusValidation $validation)
     {
-        $this->alunoValidation = $validation;
+        $this->onibusValidation = $validation;
     }
 
-    public function setParseAluno(ParserOnibus $parser)
+    public function setParseOnibus(ParserOnibus $parser)
     {
         $this->parser = $parser;
     }
 
-    public function setAlunoStorage(FormOnibusStorage $storage)
+    public function setOnibusStorage(FormOnibusStorage $storage)
     {
         $this->storage = $storage;
     }
 
     public function cadastrar($dadosEmJson, Onibus $onibus)
     {
-        $dadosEmJsonIsValid = $this->alunoValidation->validate($dadosEmJson);
+        $dadosEmJsonIsValid = $this->onibusValidation->validate($dadosEmJson);
         $onibusInfo = [];
 
         if ($dadosEmJsonIsValid){
-            $this->parser->setAlunoFromData($dadosEmJson, $onibus);
+            $this->parser->setOnibusFromData($dadosEmJson, $onibus);
             $this->storage->save($onibus);
             $onibusInfo = $onibus->jsonSerialize();
         }
