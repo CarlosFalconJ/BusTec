@@ -16,24 +16,24 @@ class FormRotaStorage
         $this->em = $em;
     }
 
-    public function save(Rota $onibus = null)
+    public function save(Rota $rota = null)
     {
-        if ($onibus){
-            $this->em->persist($onibus);
+        if ($rota){
+            $this->em->persist($rota);
             $this->em->flush();
         }
 
-        return $onibus;
+        return $rota;
     }
 
-    public function remove(Rota $onibus = null)
+    public function remove(Rota $rota = null)
     {
-        if ($onibus){
-            $this->em->remove($onibus);
+        if ($rota){
+            $this->em->remove($rota);
             $this->em->flush();
         }
 
-        return $onibus;
+        return $rota;
     }
 
     public function getRotaPorId($id)
