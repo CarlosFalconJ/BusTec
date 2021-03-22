@@ -8,16 +8,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PontoValidation
 {
-    public function validate($dadosJson)
+    public function validate($dadosEmJson)
     {
-        if (empty($dadosJson->nome)){
-            return new \Exception("O campo (nome) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->bairro)){
-            return new \Exception("O campo (bairro) não pode ser vazio",Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->rua)){
-            return new \Exception("O campo (rua) não pode ser vazio",Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->ponto_referencia)){
-            return new \Exception("O campo (ponto_referencia) não pode ser vazio",Response::HTTP_BAD_REQUEST);
+        if (strlen($dadosEmJson->nome) <= 2){
+            throw new \Exception("O campo (nome) é inválido", Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->bairro) <= 2){
+            throw new \Exception("O campo (bairro) é inválido",Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->rua) <= 2){
+            throw new \Exception("O campo (rua) é inválido",Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->ponto_referencia) <= 2){
+            throw new \Exception("O campo (ponto_referencia) é inválido",Response::HTTP_BAD_REQUEST);
         }
 
         return true;
