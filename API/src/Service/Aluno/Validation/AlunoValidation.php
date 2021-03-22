@@ -19,11 +19,11 @@ class AlunoValidation
             throw new \Exception("O campo (email) é invalido", Response::HTTP_BAD_REQUEST);
         }elseif(!preg_match('^[0-9]{3}[0-9]{4}$^',$dadosEmJson->ra)){
             throw new \Exception("O campo (ra) invalido", Response::HTTP_BAD_REQUEST);
-        }elseif(strlen($dadosEmJson->bairro) <=3){
+        }elseif(strlen($dadosEmJson->bairro) <= 2){
             throw new \Exception("O campo (bairro) é inválido", Response::HTTP_BAD_REQUEST);
-        }elseif (strlen($dadosEmJson->rua) <= 5){
+        }elseif (strlen($dadosEmJson->rua) <= 2){
             throw new \Exception("O campo (rua) é inválido", Response::HTTP_BAD_REQUEST);
-        }elseif (strlen($dadosEmJson->numero_casa) <= 1){
+        }elseif (strlen($dadosEmJson->numero_casa) <= 0){
             return new \Exception("O campo (numero_casa) é inválido", Response::HTTP_BAD_REQUEST);
         }
 
