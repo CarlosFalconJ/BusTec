@@ -8,12 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RotaValidation
 {
-    public function validate($dadosJson)
+    public function validate($dadosEmJson)
     {
-        if (empty($dadosJson->nome)){
-            return new \Exception("O campo (nome) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->cidade)){
-            return new \Exception("O campo (cidade) não pode ser vazio",Response::HTTP_BAD_REQUEST);
+
+        if (strlen($dadosEmJson->nome )<= 2){
+            throw new \Exception("O campo (nome) é inválido", Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->cidade) <= 2){
+            throw new \Exception("O campo (cidade) é inválido",Response::HTTP_BAD_REQUEST);
         }
 
         return true;
