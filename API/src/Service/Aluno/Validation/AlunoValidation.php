@@ -8,23 +8,26 @@ use Symfony\Component\HttpFoundation\Response;
 class AlunoValidation
 {
 
-    public function validate($dadosJson)
+    public function validate($dadosEmJson)
     {
-        if (empty($dadosJson->nome)){
-            return new \Exception("O campo (nome) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->numero_contato)){
-            return new \Exception("O campo (numero_contato) não pode ser vazio",Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->email)){
-            return new \Exception("O campo (email) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif(empty($dadosJson->ra)){
-            return new \Exception("O campo (ra) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif(empty($dadosJson->bairro)){
-            return new \Exception("O campo (bairro) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->rua)){
-            return new \Exception("O campo (rua) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->numero_casa)){
-            return new \Exception("O campo (numero_casa) não pode ser vazio", Response::HTTP_BAD_REQUEST);
+
+        if (strlen($dadosEmJson->nome )<= 2){;
+            throw new \Exception("O campo (nome) é inválido", Response::HTTP_BAD_REQUEST);
+        }elseif (!preg_match('^[0-9]{2,3}[0-9]{4}[0-9]{4}$^',$dadosEmJson->numero_contato)){
+            throw new \Exception("O campo (numero_contato) é inválido",Response::HTTP_BAD_REQUEST);
+        }elseif (!filter_var($dadosEmJson->email,FILTER_VALIDATE_EMAIL)){
+            throw new \Exception("O campo (email) é invalido", Response::HTTP_BAD_REQUEST);
+        }elseif(!preg_match('^[0-9]{3}[0-9]{4}$^',$dadosEmJson->ra)){
+            throw new \Exception("O campo (ra) invalido", Response::HTTP_BAD_REQUEST);
+        }elseif(strlen($dadosEmJson->bairro) <=3){
+            throw new \Exception("O campo (bairro) é inválido", Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->rua) <= 5){
+            throw new \Exception("O campo (rua) é inválido", Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->numero_casa) <= 1){
+            return new \Exception("O campo (numero_casa) é inválido", Response::HTTP_BAD_REQUEST);
         }
-        return true;
+
+        return $dadosEmJson;
     }
+
 }
