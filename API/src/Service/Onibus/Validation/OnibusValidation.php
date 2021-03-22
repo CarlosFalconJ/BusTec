@@ -10,10 +10,10 @@ class OnibusValidation
 {
     public function validate($dadosJson)
     {
-        if (empty($dadosJson->placa)){
-            return new \Exception("O campo (placa) não pode ser vazio", Response::HTTP_BAD_REQUEST);
-        }elseif (empty($dadosJson->motorista_responsavel)){
-            return new \Exception("O campo (motorista_responsavel) não pode ser vazio",Response::HTTP_BAD_REQUEST);
+        if (strlen($dadosJson->placa) <= 6){
+             throw new \Exception("O campo (placa) é inválido", Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosJson->motorista_responsavel) <=2){
+            throw new \Exception("O campo (mototista_responsavel) é inválido", Response::HTTP_BAD_REQUEST);
         }
 
         return true;
