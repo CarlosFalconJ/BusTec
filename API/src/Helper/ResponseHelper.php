@@ -37,7 +37,7 @@ class ResponseHelper
             "sucesso" => $this->sucesso,
             "paginaAtual" => $this->paginaAtual,
             "itensPorPagina" => $this->itemPorPagina,
-            "quandidaDeContatos" =>$this->qtdContatos,
+            "quandidaDeCadastros" =>$this->qtdContatos,
             "conteudoResposta" => $this->conteudoResposta,
         ];
         if(is_null($this->paginaAtual)){
