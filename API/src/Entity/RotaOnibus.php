@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=RotasOnibusRepository::class)
  * @ORM\Table(name="rota_onibus")
  */
-class RotaOnibus
+class RotaOnibus implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -56,5 +56,14 @@ class RotaOnibus
     {
         $this->onibus = $onibus;
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            "id" => $this->getId(),
+            "onibus" => $this->getOnibus(),
+            "rota" => $this->getRota()
+        ];
     }
 }
