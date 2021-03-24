@@ -105,3 +105,10 @@ buscar_um_pontp:
    path: /busca/ponto/{id}
    controller: App\Controller\PontoController::buscarPonto
    methods: GET
+
+## Routes Rota Ponto ##
+
+juntar_rota_onibus:
+   path: /rota/{id_rota}/onibus/{id_onibus}
+   controller: App\Controller\RotaController::juncaoRotaOnibus
+   methods: POST
