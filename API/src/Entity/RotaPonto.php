@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=RotaPontoRepository::class)
  * @ORM\Table(name="rota_ponto")
  */
-class RotaPonto
+class RotaPonto implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -74,5 +74,15 @@ class RotaPonto
     public function setHorario($horario): void
     {
         $this->horario = $horario;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+        "id"      => $this->getId(),
+        "ponto"   => $this->getPonto(),
+        "rota"    => $this->getRota(),
+        "horario" => $this->getHorario()
+    ];
     }
 }
