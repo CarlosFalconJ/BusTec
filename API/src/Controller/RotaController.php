@@ -8,6 +8,7 @@ use App\Helper\ExtratorDadosDoRequest;
 use App\Helper\ResponseHelper;
 use App\Service\Rota\FormRotaService;
 use App\Service\RotaOnibus\FormRotaOnibudService;
+use App\Service\RotaPonto\FormRotaPontoService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -78,6 +79,16 @@ class RotaController
         $rota_onibus = $formService->addRotaOnibusATabela($id_rota, $id_onibus);
 
         $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
+        return $response->getResponse();
+    }
+
+    public function juncaoRotaPonto(int $id_rota, int $id_ponto, Request $request)
+    {
+        $dadosEmJSon = json_decode($request->getContent());
+        $formRotaPontoService = new FormRotaPontoService($this->em, $this->dadosDoRequest);
+        $rota_ponto = $formRotaPontoService->addRotaPontoATabela($id_rota, $id_ponto,$dadosEmJSon);
+
+        $response = new ResponseHelper(true, $rota_ponto, Response::HTTP_OK );
         return $response->getResponse();
     }
 }
