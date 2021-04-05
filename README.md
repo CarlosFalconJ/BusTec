@@ -10,4 +10,4 @@ Tcc
 - Criar uma pasta dentro de /var chamada data com o seguinte arquivo data.db (to usando sqlite por enquanto)
 - Execute o comando php bin/console doctrine:migrations:migrate
 - Já pode fazer as requisições
-- Dica: Use o app Postman para fazer as requi
+- Dica: Use o app Postman para fazer as requisições
