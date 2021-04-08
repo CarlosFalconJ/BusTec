@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Controller\BustecApi;
 
 
 use App\Helper\ExtratorDadosDoRequest;
