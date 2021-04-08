@@ -1,121 +1,129 @@
 ## Routes de Alunos ##
 
+   ## API ##
 adicionar_aluno:
    path: /onibus/{id_onibus}/aluno
-   controller: App\Controller\AlunoController::insertAluno
+   controller: App\Controller\BustecApi\AlunoController::insertAluno
    methods: POST
 
 buscar_todos_alunos:
    path: /buscar/todos/alunos
-   controller: App\Controller\AlunoController::buscarTodosAlunos
+   controller: App\Controller\BustecApi\AlunoController::buscarTodosAlunos
    methods: GET
 
 atualizar_aluno:
    path: /aluno/{id}
-   controller: App\Controller\AlunoController::updateAluno
+   controller: App\Controller\BustecApi\AlunoController::updateAluno
    methods: PUT
 
 deletar_aluno:
    path: /aluno/{id}
-   controller: App\Controller\AlunoController::deleteAluno
+   controller: App\Controller\BustecApi\AlunoController::deleteAluno
    methods: DELETE
 
 buscar_um_aluno:
    path: /busca/aluno/{id}
-   controller: App\Controller\AlunoController::buscarAluno
+   controller: App\Controller\BustecApi\AlunoController::buscarAluno
    methods: GET
+
+   ## WEB ##
+
+base_html:
+    path: /
+    controller: App\Controller\BustecAdm\Render::base
+    methods: GET
 
 ## Routes de Onibus ##
 
 adicionar_onibus:
    path: /onibus
-   controller: App\Controller\OnibusController::insertOnibus
+   controller: App\Controller\BustecApi\OnibusController::insertOnibus
    methods: POST
 
 buscar_todos_onibus:
    path: /buscar/todos/onibus
-   controller: App\Controller\OnibusController::buscarTodosOnibus
+   controller: App\Controller\BustecApi\OnibusController::buscarTodosOnibus
    methods: GET
 
 atualizar_onibus:
    path: /onibus/{id}
-   controller: App\Controller\OnibusController::updateOnibus
+   controller: App\Controller\BustecApi\OnibusController::updateOnibus
    methods: PUT
 
 deletar_onibus:
    path: /onibus/{id}
-   controller: App\Controller\OnibusController::deleteOnibus
+   controller: App\Controller\BustecApi\OnibusController::deleteOnibus
    methods: DELETE
 
 buscar_um_onibus:
    path: /busca/onibus/{id}
-   controller: App\Controller\OnibusController::buscarOnibus
+   controller: App\Controller\BustecApi\OnibusController::buscarOnibus
    methods: GET
 
 ## Routes de Rotas ##
 
 adicionar_rota:
    path: /rota
-   controller: App\Controller\RotaController::insertRota
+   controller: App\Controller\BustecApi\RotaController::insertRota
    methods: POST
 
 buscar_todas_rotas:
    path: /buscar/todas/rotas
-   controller: App\Controller\RotaController::buscarTodasRotas
+   controller: App\Controller\BustecApi\RotaController::buscarTodasRotas
    methods: GET
 
 atualizar_rota:
    path: /rota/{id}
-   controller: App\Controller\RotaController::updateRota
+   controller: App\Controller\BustecApi\RotaController::updateRota
    methods: PUT
 
 deletar_rota:
    path: /rota/{id}
-   controller: App\Controller\RotaController::deleteRota
+   controller: App\Controller\BustecApi\RotaController::deleteRota
    methods: DELETE
 
 buscar_uma_rota:
    path: /busca/rota/{id}
-   controller: App\Controller\RotaController::buscarRota
+   controller: App\Controller\BustecApi\RotaController::buscarRota
    methods: GET
 
 ## Routes de Pontos ##
 
 adicionar_ponto:
    path: /ponto
-   controller: App\Controller\PontoController::insertPonto
+   controller: App\Controller\BustecApi\PontoController::insertPonto
    methods: POST
 
 buscar_todos_pontos:
    path: /buscar/todos/pontos
-   controller: App\Controller\PontoController::buscarTodosPontos
+   controller: App\Controller\BustecApi\PontoController::buscarTodosPontos
    methods: GET
 
 atualizar_ponto:
    path: /ponto/{id}
-   controller: App\Controller\PontoController::updatePonto
+   controller: App\Controller\BustecApi\PontoController::updatePonto
    methods: PUT
 
 deletar_ponto:
    path: /ponto/{id}
-   controller: App\Controller\PontoController::deletePonto
+   controller: App\Controller\BustecApi\PontoController::deletePonto
    methods: DELETE
 
 buscar_um_pontp:
    path: /busca/ponto/{id}
-   controller: App\Controller\PontoController::buscarPonto
+   controller: App\Controller\BustecApi\PontoController::buscarPonto
    methods: GET
 
 ## Routes Rota Onibus ##
 
 juntar_rota_onibus:
    path: /rota/{id_rota}/onibus/{id_onibus}
-   controller: App\Controller\RotaController::juncaoRotaOnibus
+   controller: App\Controller\BustecApi\RotaController::juncaoRotaOnibus
    methods: POST
 
 ## Routes Rota Ponto ##
 
 juntar_rota_ponto:
    path: /rota/{id_rota}/ponto/{id_ponto}
-   controller: App\Controller\RotaController::juncaoRotaPonto
+   controller: App\Controller\BustecApi\RotaController::juncaoRotaPonto
    methods: POST
