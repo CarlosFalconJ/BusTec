@@ -1,0 +1,60 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block corpo %}
+
+        <section class="nav_top">
+            <div class="h1_cadastro"><h1>Cadastro de alunos</h1></div>
+        </section>
+
+
+    <section class="section_top">
+         <div class="h2_cadastro form-group col-md-6"><h2>Dados cadastrais</h2></div>
+    </section>
+
+
+    <form class="cover-conteiner-form">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nome_aluno">Nome: </label>
+                <input type="text" class="form-control" id="nome_aluno" placeholder="Digite o nome do aluno">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="numero_aluno">Numero para contato: </label>
+                <input type="number" class="form-control" id="numero_aluno" placeholder="Digite o numero para contato">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email_aluno">Email: </label>
+                <input type="text" class="form-control" id="email_aluno" placeholder="Digite o email do aluno">
+            </div>
+
+            <div class="form-group col-md-3" >
+                <label for="ra_aluno">Ra: </label>
+                <input type="text" class="form-control" id="ra_aluno" placeholder="Digite o RA do aluno">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="bairro_aluno">Bairro: </label>
+                <input type="text" class="form-control" id="bairro_aluno" placeholder="Digite o bairro do aluno">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="rua_aluno">Rua: </label>
+                <input type="text" class="form-control" id="rua_aluno" placeholder="Digite a rua do aluno">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="numero_casa_aluno">Nº: </label>
+                <input type="text" class="form-control" id="numero_casa_aluno" placeholder="Ex. 46">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-danger">Limpar</button>
+    </form>
+
+{% endblock %}
