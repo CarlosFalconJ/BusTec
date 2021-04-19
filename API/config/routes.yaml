@@ -1,3 +1,11 @@
+## Base WEB ##
+
+base_html:
+   path: /
+   controller: App\Controller\BustecAdm\HomeRender::home
+   methods: GET
+
+
 ## Routes de Alunos ##
 
    ## API ##
@@ -28,9 +36,19 @@ buscar_um_aluno:
 
    ## WEB ##
 
-base_html:
-    path: /
-    controller: App\Controller\BustecAdm\Render::base
+adicionar_aluno_html:
+    path: /aluno/cadastro
+    controller: App\Controller\BustecAdm\AlunoRender::cadastroALuno
+    methods: GET
+
+atualizar_aluno_html:
+    path: /aluno/atualizar/{id_aluno}
+    controller: App\Controller\BustecAdm\AlunoRender::atualizarAluno
+    methods: GET
+
+listar_aluno_html:
+    path: /aluno/listar-todos
+    controller: App\Controller\BustecAdm\AlunoRender::listarAlunos
     methods: GET
 
 ## Routes de Onibus ##
@@ -59,6 +77,7 @@ buscar_um_onibus:
    path: /busca/onibus/{id}
    controller: App\Controller\BustecApi\OnibusController::buscarOnibus
    methods: GET
+
 
 ## Routes de Rotas ##
 
@@ -114,14 +133,14 @@ buscar_um_pontp:
    controller: App\Controller\BustecApi\PontoController::buscarPonto
    methods: GET
 
-## Routes Rota Onibus ##
+## Routes Onibus Onibus ##
 
 juntar_rota_onibus:
    path: /rota/{id_rota}/onibus/{id_onibus}
    controller: App\Controller\BustecApi\RotaController::juncaoRotaOnibus
    methods: POST
 
-## Routes Rota Ponto ##
+## Routes Onibus Ponto ##
 
 juntar_rota_ponto:
    path: /rota/{id_rota}/ponto/{id_ponto}
