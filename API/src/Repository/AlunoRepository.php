@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Aluno;
+use App\Entity\Onibus;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\Type;
 use Doctrine\Persistence\ManagerRegistry;
+
 
 /**
  * @method Aluno|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +50,28 @@ class AlunoRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function buscarTodosOnibus()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('o.id, o.placa')
+            ->from(Onibus::class, 'o');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+
+    public function buscarTodosAlunos()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('a.id, a.nome, a.email, a.numero_contato, a.ra, a.bairro, a.rua, a.numero_casa')
+            ->from(Aluno::class, 'a');
+
+        return $qb->getQuery()->getArrayResult();
+
+    }
 }
