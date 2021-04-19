@@ -155,3 +155,9 @@ body {
     background-color: transparent;
     border: 0;
 }
+
+.table-dark{
+    color: black;
+    background-color: white;
+}
+
