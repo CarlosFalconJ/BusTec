@@ -4,21 +4,48 @@
 namespace App\Controller\BustecAdm;
 
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class Render extends AbstractController
+use App\Repository\AlunoRepository;
+use App\Service\Aluno\AlunoService;
+use App\Service\Aluno\FormAlunoService;
+use App\Service\Aluno\Storage\FormAlunoStorage;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+
+class AlunoRender extends AbstractController
+
 {
-    public function base()
+    private $em;
+
+    private $alunoRepository;
+
+    public function __construct(EntityManagerInterface $em, AlunoRepository $alunoRepository)
     {
-        return $this->render('Base\base.html.twig');
+
+        $this->em = $em;
+        $this->alunoRepository = $alunoRepository;
     }
+
     public function cadastroALuno()
     {
-        return $this->render('Aluno\cadastro_aluno.html.twig');
+        $alunoService = new AlunoService($this->em, $this->alunoRepository);
+        $onibus =$alunoService->buscarOnibus();
+
+        return $this->render('Aluno\cadastro_aluno.html.twig', ["AllOnibus" => $onibus]);
     }
 
     public function atualizarAluno()
     {
         return $this->render('Aluno\atualizar_aluno.html.twig');
+    }
+
+    public function listarAlunos()
+    {
+
+         $alunoService = new AlunoService($this->em, $this->alunoRepository);
+         $alunos =$alunoService->listarAlunos();
+
+        return $this->render('Aluno\listar_alunos.html.twig', ["alunos" => $alunos]);
     }
 }
