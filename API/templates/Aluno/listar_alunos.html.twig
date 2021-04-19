@@ -2,83 +2,44 @@
 
 {% block corpo %}
 
-<div>
     <div class="box-header with-border">
             <section class="nav_top">
                 <div class="h1_cadastro"><h1>Lista dos alunos</h1></div>
             </section>
         </div>
 
-
-
     <table class="table table-striped table-dark">
         <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Numero</th>
-            <th scope="col">Email</th>
-            <th scope="col">RA</th>
-            <th scope="col">Bairro</th>
-            <th scope="col">Rua</th>
-            <th scope="col">Nº</th>
-            <th scope="col">ID do onibus</th>
-            <th scope="col">Opções</th>
-        </tr>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Email</th>
+                <th scope="col">RA</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Nº</th>
+                <th scope="col">Opções</th>
+            </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-        </tr>
+        <tbody id="tabela-alunos">
+            {% for aluno in alunos %}
+                <tr>
+                    <td>{{ aluno.id }}</td>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.email }}</td>
+                    <td>{{ aluno.numero_contato }}</td>
+                    <td>{{ aluno.ra }}</td>
+                    <td>{{ aluno.bairro }}</td>
+                    <td>{{ aluno.rua }}</td>
+                    <td>{{ aluno.numero_casa }}</td>
+                    <td>
+                        <i data-id-aluno="{{ aluno.id }}" class="btn btn-sm btn-success editar_alunos">Editar</i>
+                        <i data-id-aluno="{{ aluno.id }}" class="btn btn-sm btn-danger remove_alunos">Apagar</i>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
-
-    <span>
-        <nav aria-label="Page navigation example">
-           <ul class="pagination justify-content-center">
-                 <li class="page-item disabled">
-                     <a class="page-link" href="#" tabindex="-1">Previous</a>
-                 </li>
-                 <li class="page-item"><a class="page-link" href="#">1</a></li>
-                 <li class="page-item"><a class="page-link" href="#">2</a></li>
-                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-                 <li class="page-item">
-                     <a class="page-link" href="#">Next</a>
-                 </li>
-           </ul>
-        </nav>
-    </span>
- </div>
 
 {% endblock %}
