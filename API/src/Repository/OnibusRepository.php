@@ -48,7 +48,7 @@ class OnibusRepository extends ServiceEntityRepository
     }
     */
 
-    public function buscarTodosAlunos()
+    public function buscarTodosOnibus()
     {
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
