@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Controller\BustecAdm\RotasRender;
 use App\Entity\Rota;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,4 +48,15 @@ class RotaRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function buscarTodasRotas()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('r.id, r.nome, r.cidade')
+            ->from(Rota::class, 'r');
+
+        return $qb->getQuery()->getArrayResult();
+    }
 }
