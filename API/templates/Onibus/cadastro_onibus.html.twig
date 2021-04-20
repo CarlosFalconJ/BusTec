@@ -1,0 +1,41 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block corpo %}
+
+
+<div class="box-header with-border">
+    <section class="nav_top">
+        <div class="h1_cadastro">
+            <h1>Cadastro Onibus</h1>
+        </div>
+    </section>
+</div>
+
+<section class="section_top">
+    <div class="h2_cadastro">
+        <h2>Dados cadastrais</h2>
+    </div>
+</section>
+
+
+<form class="cover-conteiner-form">
+    <div class="form-row">
+
+        <div class="form-group col-md-4">
+            <label for="nome_motorista_onibus-cadastro">Nome do motorista responsavel: </label>
+            <input type="text" class="form-control" id="nome_motorista_onibus-cadastro" placeholder="Digite o nome do motorista responsavel">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="numero_placa_onibus-cadastro">Placa: </label>
+            <input type="text" class="form-control" id="numero_placa_onibus-cadastro" placeholder="Digite o número da placa do onibus">
+        </div>
+
+
+    </div>
+
+    <button id="salvar-onibus-cadastro" type="submit" class="btn btn-success">Salvar</button>
+    <button id="limpar-onibus-cadastro" type="submit" class="btn btn-danger">Limpar</button>
+</form>
+
+{% endblock %}
