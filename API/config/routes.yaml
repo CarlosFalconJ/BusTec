@@ -98,6 +98,7 @@ listar_onibus_html:
 
 ## Routes de Rotas ##
 
+   ## API ##
 adicionar_rota:
    path: /rota
    controller: App\Controller\BustecApi\RotaController::insertRota
@@ -121,6 +122,23 @@ deletar_rota:
 buscar_uma_rota:
    path: /busca/rota/{id}
    controller: App\Controller\BustecApi\RotaController::buscarRota
+   methods: GET
+
+   ## WEB ##
+
+adicionar_rota_html:
+   path: /rota/cadastro
+   controller: App\Controller\BustecAdm\RotasRender::cadastroRotas
+   methods: GET
+
+atualizar_rota_html:
+   path: /rota/atualizar/{id_rotas}
+   controller: App\Controller\BustecAdm\RotasRender::atualizarRotas
+   methods: GET
+
+listar_rota_html:
+   path: /rota/listar-todos
+   controller: App\Controller\BustecAdm\RotasRender::listarRotas
    methods: GET
 
 ## Routes de Pontos ##
@@ -150,14 +168,14 @@ buscar_um_pontp:
    controller: App\Controller\BustecApi\PontoController::buscarPonto
    methods: GET
 
-## Routes Onibus Onibus ##
+## Routes Rota Onibus ##
 
 juntar_rota_onibus:
    path: /rota/{id_rota}/onibus/{id_onibus}
    controller: App\Controller\BustecApi\RotaController::juncaoRotaOnibus
    methods: POST
 
-## Routes Onibus Ponto ##
+## Routes Rota Ponto ##
 
 juntar_rota_ponto:
    path: /rota/{id_rota}/ponto/{id_ponto}
