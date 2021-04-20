@@ -4,8 +4,6 @@ $("#salvar-onibus-cadastro").click(function () {
 
     var json = serializadorOnibus(motorista_responsavel, placa)
 
-    console.log(json)
-
     $.post("http://localhost:8080/onibus", json, function () {
         alert("cadastrado");
     }).fail(function (){
