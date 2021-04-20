@@ -47,4 +47,16 @@ class OnibusRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function buscarTodosAlunos()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('o.id, o.motorista_responsavel, o.placa')
+            ->from(Onibus::class, 'o');
+
+        return $qb->getQuery()->getArrayResult();
+
+    }
 }
