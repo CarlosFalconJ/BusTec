@@ -33,3 +33,9 @@ function realizaRequestOnibus(idOnibus, json) {
         alert('ALWAYS');
     });
 }
+
+$("#limpar-onibus-atualizar").click( function (e) {
+    e.preventDefault();
+    $("#nome_motorista_onibus-atualizar").val("");
+    $("#numero_placa_onibus-atualizar").val("");
+})

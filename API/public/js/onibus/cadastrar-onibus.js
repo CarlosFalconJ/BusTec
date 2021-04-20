@@ -24,3 +24,9 @@ function serializadorOnibus(motorista_resposavel, placa) {
 
     return json;
 }
+
+$("#limpar-onibus-cadastro").click( function (e) {
+    e.preventDefault();
+    $("#nome_motorista_onibus-cadastro").val("");
+    $("#numero_placa_onibus-cadastro").val("");
+})
