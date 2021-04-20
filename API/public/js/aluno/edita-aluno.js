@@ -1,5 +1,5 @@
 ﻿
-    $("#salvar-aluno-atualizar").click(function (e) {
+$("#salvar-aluno-atualizar").click(function (e) {
 
         let id = window.location.href;
         id = id.split('/');
@@ -18,8 +18,6 @@
         realizaRequest(idAluno, json);
     });
 
-
-
 function realizaRequest(idAluno, json) {
 
     $.ajax({
@@ -34,5 +32,20 @@ function realizaRequest(idAluno, json) {
     }).always(function (msg) {
         console.log('ALWAYS');
     });
-
 }
+
+
+$("#limpar-aluno-atualizar").click(function (e) {
+    e.preventDefault();
+
+    $("#nome_aluno-atualizar").val("");
+    $("#numero_aluno-atualizar").val("");
+    $("#email_aluno-atualizar").val("");
+    $("#ra_aluno-atualizar").val("");
+    $("#bairro_aluno-atualizar").val("");
+    $("#rua_aluno-atualizar").val("");
+    $("#numero_casa_aluno-atualizar").val("");
+});
+
+
+

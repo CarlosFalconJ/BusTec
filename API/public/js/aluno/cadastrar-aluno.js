@@ -18,20 +18,6 @@ $("#salvar-aluno-cadastro").click(function () {
     })
 });
 
-
-
-$("#limpar-aluno-cadastro").click(function (e) {
-    e.preventDefault();
-
-    $("#nome_aluno-cadastro").val("");
-    $("#numero_aluno-cadastro").val("");
-    $("#email_aluno-cadastro").val("");
-    $("#ra_aluno-cadastro").val("");
-    $("#bairro_aluno-cadastro").val("");
-    $("#rua_aluno-cadastro").val("");
-    $("#numero_casa_aluno-cadastro").val("");
-})
-
 function serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa) {
     var dados =  {
         "nome": nome,
@@ -48,3 +34,16 @@ function serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa) {
     return json;
 }
 
+$("#limpar-aluno-cadastro").click(function (e) {
+
+    console.log('click')
+    e.preventDefault();
+
+    $("#nome_aluno-cadastro").val("");
+    $("#numero_aluno-cadastro").val("");
+    $("#email_aluno-cadastro").val("");
+    $("#ra_aluno-cadastro").val("");
+    $("#bairro_aluno-cadastro").val("");
+    $("#rua_aluno-cadastro").val("");
+    $("#numero_casa_aluno-cadastro").val("");
+}) ;
