@@ -29,7 +29,7 @@ class RotasRender extends  AbstractController
 
     public function atualizarRotas()
     {
-        return $this->render('Rota\atualizar_rotas.html.twig');
+        return $this->render('Rota\atualizar_rota.html.twig');
     }
 
     public function listarRotas()
