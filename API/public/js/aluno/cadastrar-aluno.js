@@ -35,8 +35,6 @@ function serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa) {
 }
 
 $("#limpar-aluno-cadastro").click(function (e) {
-
-    console.log('click')
     e.preventDefault();
 
     $("#nome_aluno-cadastro").val("");
