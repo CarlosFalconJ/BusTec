@@ -34,8 +34,8 @@ class OnibusRender extends AbstractController
 
     public function listarOnibus()
     {
-        $alunoService = new OnibusService($this->em, $this->onibusRepository);
-        $onibus = $alunoService->listarOnibus();
+        $onibusService = new OnibusService($this->em, $this->onibusRepository);
+        $onibus = $onibusService->listarOnibus();
 
         return $this->render('Onibus\listar_onibus.html.twig', ["allOnibus" => $onibus]);
     }
