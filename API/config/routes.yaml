@@ -53,6 +53,7 @@ listar_aluno_html:
 
 ## Routes de Onibus ##
 
+   ## API ##
 adicionar_onibus:
    path: /onibus
    controller: App\Controller\BustecApi\OnibusController::insertOnibus
@@ -78,6 +79,22 @@ buscar_um_onibus:
    controller: App\Controller\BustecApi\OnibusController::buscarOnibus
    methods: GET
 
+   ## WEB ##
+
+adicionar_onibus_html:
+   path: /onibus/cadastro
+   controller: App\Controller\BustecAdm\OnibusRender::cadastroOnibus
+   methods: GET
+
+atualizar_onibus_html:
+   path: /onibus/atualizar/{id_onibus}
+   controller: App\Controller\BustecAdm\OnibusRender::atualizarOnibus
+   methods: GET
+
+listar_onibus_html:
+   path: /onibus/listar-todos
+   controller: App\Controller\BustecAdm\OnibusRender::listarOnibus
+   methods: GET
 
 ## Routes de Rotas ##
 
