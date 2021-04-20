@@ -1,0 +1,36 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block corpo %}
+
+    <div class="box-header with-border">
+        <section class="nav_top">
+            <div class="h1_cadastro"><h1>Lista das rotas</h1></div>
+        </section>
+    </div>
+
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Opções</th>
+
+        </tr>
+        </thead>
+        <tbody id="tabela-alunos">
+        {% for rota in rotas %}
+            <tr>
+                <td>{{ rota.id }}</td>
+                <td>{{ rota.nome }}</td>
+                <td>{{ rota.cidade }}</td>
+                <td>
+                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-success editar_rota">Editar</i>
+                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-danger remove_rota">Apagar</i>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
