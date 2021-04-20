@@ -21,8 +21,8 @@ class OnibusService
 
     public function listarOnibus(){
 
-        $alunos = $this->onibusRepository->buscarTodosAlunos();
-        return $alunos;
+        $onibus = $this->onibusRepository->buscarTodosOnibus();
+        return $onibus;
     }
 
 }
