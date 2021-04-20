@@ -1,0 +1,39 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block corpo %}
+
+    <div class="box-header with-border">
+        <section class="nav_top">
+            <div class="h1_cadastro"><h1>Lista dos alunos</h1></div>
+        </section>
+    </div>
+
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Bairro</th>
+            <th scope="col">Rua</th>
+            <th scope="col">Ponto de referência</th>
+            <th scope="col">Opções</th>
+        </tr>
+        </thead>
+        <tbody id="tabela-alunos">
+        {% for ponto in pontos %}
+            <tr>
+                <td>{{ ponto.id }}</td>
+                <td>{{ ponto.nome }}</td>
+                <td>{{ ponto.bairro }}</td>
+                <td>{{ ponto.rua }}</td>
+                <td>{{ ponto.ponto_referencia }}</td>
+                <td>
+                    <i data-id-ponto="{{ ponto.id }}" class="btn btn-sm btn-success editar_ponto">Editar</i>
+                    <i data-id-ponto="{{ ponto.id }}" class="btn btn-sm btn-danger remove_ponto">Apagar</i>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
