@@ -24,4 +24,16 @@ class RotaService
         $rotas = $this->rotaRepository->buscarTodasRotas();
         return $rotas;
     }
+
+    public function buscarTodasRotas()
+    {
+        $rotas = $this->rotaRepository->buscarRotasNomeID();
+        return $rotas;
+    }
+
+    public function buscarTodosOnibus()
+    {
+        $onibus = $this->rotaRepository->buscarOnibusPlacaID();
+        return $onibus;
+    }
 }
