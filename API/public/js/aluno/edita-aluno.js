@@ -1,7 +1,7 @@
 ﻿
 $("#salvar-aluno-atualizar").click(function (e) {
-
     e.preventDefault();
+
     let id = window.location.href;
     id = id.split('/');
     let idAluno = id[5]
@@ -17,11 +17,9 @@ $("#salvar-aluno-atualizar").click(function (e) {
     var json = serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa);
 
     realizaRequestAtualizaAluno(idAluno, json);
-
-    });
+});
 
 function realizaRequestAtualizaAluno(idAluno, json) {
-
     $.ajax({
         type: 'PUT',
         url: 'http://localhost:8080/aluno/' + idAluno,
@@ -33,7 +31,6 @@ function realizaRequestAtualizaAluno(idAluno, json) {
         menssagemDeErro('Dados não aatualizados!!, verifique os dados e tente novamente');
     });
 }
-
 
 $("#limpar-aluno-atualizar").click(function (e) {
     e.preventDefault();

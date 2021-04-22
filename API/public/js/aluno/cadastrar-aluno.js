@@ -10,12 +10,10 @@ $("#salvar-aluno-cadastro").click(function (e) {
     var num_casa = $("#numero_casa_aluno-cadastro").val();
     var idOnibus = $(".escolha-onibus").val();
 
-
     var json = serializadorAluno(nome, numero, email, ra, bairro,rua, num_casa)
 
     $.post("http://localhost:8080/onibus/"+ idOnibus + "/aluno", json, function () {
         menssagemDeSucesso('Aluno cadastrado com sucesso!!');
-        window.location.href= "/aluno/listar-todos";
     }).fail(function (){
         menssagemDeErro('Aluno não cadastrado!!, verifique os dados e tente novamente');
     })
@@ -31,7 +29,6 @@ function serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa) {
         "rua": rua,
         "numero_casa": num_casa
     }
-
     var json = JSON.stringify(dados);
 
     return json;
