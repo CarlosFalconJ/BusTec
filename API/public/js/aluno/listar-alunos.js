@@ -7,21 +7,24 @@ $(".editar_alunos").click(function (e) {
 });
 
 $(".remove_alunos").click(function (e){
+    e.preventDefault();
+
     var idAluno = $(this).data("id-aluno");
 
-    requestDelete(idAluno)
-
-    window.location.href="/aluno/listar-todos"
+    requestDeleteAluno(idAluno)
 });
 
 
-function requestDelete(idAluno) {
+function requestDeleteAluno(idAluno) {
 
     $.ajax({
         url: '/aluno/' +idAluno,
         type: 'DELETE',
-        success: function(result) {
-            alert('removido com sucesso')
+        success: function() {
+            menssagemDeSucesso('Aluno excluido com sucesso!!')
+        },
+        error: function () {
+            menssagemDeErro('Ouve um problema!!, aluno não excluido')
         }
     });
 }
