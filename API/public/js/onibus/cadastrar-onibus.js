@@ -5,14 +5,11 @@ $("#salvar-onibus-cadastro").click(function () {
     var json = serializadorOnibus(motorista_responsavel, placa)
 
     $.post("http://localhost:8080/onibus", json, function () {
-        alert("cadastrado");
+        menssagemDeSucesso('ônibus cadastrado com sucesso!!');
     }).fail(function (){
-        alert("falhou")
+        menssagemDeErro('ônibus não cadastrado!!, verifique os dados e tente novamente');
     })
-
-    window.location.href= "/onibus/listar-todos";
 });
-
 
 function serializadorOnibus(motorista_resposavel, placa) {
     var dados =  {
