@@ -1,6 +1,7 @@
 ﻿
 $("#salvar-aluno-atualizar").click(function (e) {
 
+    e.preventDefault();
     let id = window.location.href;
     id = id.split('/');
     let idAluno = id[5]
@@ -15,12 +16,11 @@ $("#salvar-aluno-atualizar").click(function (e) {
 
     var json = serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa);
 
-    realizaRequest(idAluno, json);
+    realizaRequestAtualizaAluno(idAluno, json);
 
-    window.location.href= "/aluno/listar-todos";
     });
 
-function realizaRequest(idAluno, json) {
+function realizaRequestAtualizaAluno(idAluno, json) {
 
     $.ajax({
         type: 'PUT',
@@ -28,11 +28,9 @@ function realizaRequest(idAluno, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        console.log('SUCCESS');
-    }).fail(function (msg) {
-        console.log('FAIL');
-    }).always(function (msg) {
-        console.log('ALWAYS');
+        menssagemDeSucesso('Dados do aluno atualizados com sucesso!!');
+    }).fail(function () {
+        menssagemDeErro('Dados não aatualizados!!, verifique os dados e tente novamente');
     });
 }
 
