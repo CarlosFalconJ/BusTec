@@ -1,5 +1,4 @@
 $("#salvar-onibus-atualizar").click(function (e) {
-
     e.preventDefault()
     e.stopPropagation();
 
@@ -13,12 +12,11 @@ $("#salvar-onibus-atualizar").click(function (e) {
 
     var json = serializadorOnibus(motorista_responsavel, placa);
 
-    realizaRequestOnibus(idOnibus, json);
+    realizaRequestAtualizaOnibus(idOnibus, json);
 
-    window.location.href= "/onibus/listar-todos";
 });
 
-function realizaRequestOnibus(idOnibus, json) {
+function realizaRequestAtualizaOnibus(idOnibus, json) {
 
     $.ajax({
         type: 'PUT',
@@ -26,11 +24,9 @@ function realizaRequestOnibus(idOnibus, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        alert('SUCCESS');
-    }).fail(function (msg) {
-        alert('FAIL');
-    }).always(function (msg) {
-        alert('ALWAYS');
+        menssagemDeSucesso('ônibus atualizado com sucesso!!')
+    }).fail(function () {
+        menssagemDeErro('ônibus não atualizado!!, verifique os dados e tente novamente')
     });
 }
 
