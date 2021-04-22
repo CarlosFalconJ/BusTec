@@ -36,4 +36,10 @@ class RotaService
         $onibus = $this->rotaRepository->buscarOnibusPlacaID();
         return $onibus;
     }
+
+    public function buscarTodoPontos()
+    {
+        $pontos = $this->rotaRepository->buscaPontosNomeID();
+        return $pontos;
+    }
 }
