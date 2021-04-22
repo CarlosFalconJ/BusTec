@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Controller\BustecAdm\RotasRender;
 use App\Entity\Onibus;
+use App\Entity\Ponto;
 use App\Entity\Rota;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -79,6 +80,17 @@ class RotaRepository extends ServiceEntityRepository
 
         $qb->select('o.id, o.placa')
             ->from(Onibus::class, 'o');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function buscaPontosNomeID()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('p.id, p.nome')
+            ->from(Ponto::class, 'p');
 
         return $qb->getQuery()->getArrayResult();
     }
