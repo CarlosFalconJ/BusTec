@@ -1,27 +1,26 @@
 $(".editar_ponto").click(function (e) {
     e.preventDefault();
-    e.stopPropagation();
-    var idPonto = $(this).data("id-ponto");
 
+    var idPonto = $(this).data("id-ponto");
     window.location.href="/ponto/atualizar/" + idPonto
 });
 
-$(".remove_onibus").click(function (e){
+$(".remove_ponto").click(function (e){
+    e.preventDefault();
+
     var idPonto = $(this).data("id-ponto");
-
     requestDeletePonto(idPonto)
-
-    window.location.href="/onibus/listar-todos"
 });
 
-
 function requestDeletePonto(idPonto) {
-
     $.ajax({
         url: '/ponto/' +idPonto,
         type: 'DELETE',
         success: function(result) {
-            alert('removido com sucesso')
+            menssagemDeSucesso('Ponto removido com sucesso!!')
+        },
+        error: function (){
+            menssagemDeErro('Ouve um problema!!, ponto não removido')
         }
     });
 }

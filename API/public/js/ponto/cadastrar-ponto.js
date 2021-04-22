@@ -1,4 +1,5 @@
 $("#salvar-ponto-cadastro").click(function (e) {
+    e.preventDefault();
 
     var nome= $("#nome_ponto-cadastro").val();
     var bairro = $("#bairro_ponto-cadastro").val();
@@ -7,15 +8,12 @@ $("#salvar-ponto-cadastro").click(function (e) {
 
     var json = serializadorPonto(nome, bairro, rua , ponto_referencia)
 
-    console.log(json)
-
     $.post("http://localhost:8080/ponto", json, function () {
-        alert("cadastrado");
+        menssagemDeSucesso('Ponto cadastrado de sucesso!!')
     }).fail(function (){
-        alert("falhou")
+        menssagemDeErro('Ponto não cadastrado!!, verifique os dados e tente novamente');
     })
 });
-
 
 function serializadorPonto(nome, bairro, rua, ponto_referencia ) {
     var dados =  {
@@ -24,7 +22,6 @@ function serializadorPonto(nome, bairro, rua, ponto_referencia ) {
         "rua": rua,
         "ponto_referencia": ponto_referencia,
     }
-
     var json = JSON.stringify(dados);
 
     return json;
@@ -33,7 +30,6 @@ function serializadorPonto(nome, bairro, rua, ponto_referencia ) {
 $("#limpar-ponto-cadastro").click( function (e) {
     e.preventDefault()
 
-    e.preventDefault();
     $("#nome_ponto-cadastro").val("");
     $("#bairro_ponto-cadastro").val("");
     $("#rua_ponto-cadastro").val("");
