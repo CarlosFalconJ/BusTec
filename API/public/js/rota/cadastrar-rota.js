@@ -1,13 +1,15 @@
-$("#salvar-rota-cadastro").click(function () {
+$("#salvar-rota-cadastro").click(function (e) {
+    e.preventDefault();
+
     var nome = $("#nome_rota-cadastro").val();
     var cidade = $("#cidade_rota-cadastro").val();
 
-    var json = serializadorRota(nome, cidade)
+    var json = serializadorRota(nome, cidade);
 
     $.post("http://localhost:8080/rota", json, function () {
-        alert("cadastrado");
+        menssagemDeSucesso('Rota cadastrada com sucesso!!');
     }).fail(function (){
-        alert("falhou")
+        menssagemDeErro('Rota não cadastrada!!, verifique os dados e tente novamente');
     })
 });
 
@@ -16,7 +18,6 @@ function serializadorRota(nome, cidade) {
         "nome": nome,
         "cidade": cidade,
     }
-
     var json = JSON.stringify(dados);
 
     return json;
