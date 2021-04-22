@@ -48,4 +48,13 @@ class RotasRender extends  AbstractController
 
         return $this->render('Rota\vincular_rota-onibus.html.twig',["rotas" => $rotas, "allOnibus" => $onibus]);
     }
+
+    public function vinculaRotaPonto()
+    {
+        $rotaService = new RotaService($this->em, $this->rotaRepository);
+        $rotas = $rotaService->buscarTodasRotas();
+        $pontos = $rotaService->buscarTodoPontos();
+
+        return $this->render('Rota\vincular_rota-ponto',["rotas" => $rotas, "pontos" => $pontos]);
+    }
 }
