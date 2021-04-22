@@ -9,6 +9,8 @@ $("#salvar-onibus-cadastro").click(function () {
     }).fail(function (){
         alert("falhou")
     })
+
+    window.location.href= "/onibus/listar-todos";
 });
 
 
