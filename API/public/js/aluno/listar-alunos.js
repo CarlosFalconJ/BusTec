@@ -21,7 +21,7 @@ function requestDelete(idAluno) {
         url: '/aluno/' +idAluno,
         type: 'DELETE',
         success: function(result) {
-            console.log('removido com sucesso')
+            alert('removido com sucesso')
         }
     });
 }

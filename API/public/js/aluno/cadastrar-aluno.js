@@ -1,4 +1,6 @@
-$("#salvar-aluno-cadastro").click(function () {
+$("#salvar-aluno-cadastro").click(function (e) {
+    e.preventDefault()
+
     var nome = $("#nome_aluno-cadastro").val();
     var numero = $("#numero_aluno-cadastro").val();
     var email = $("#email_aluno-cadastro").val();
@@ -16,6 +18,8 @@ $("#salvar-aluno-cadastro").click(function () {
     }).fail(function (){
         alert("falhou")
     })
+
+    window.location.href= "/aluno/listar-todos";
 });
 
 function serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa) {

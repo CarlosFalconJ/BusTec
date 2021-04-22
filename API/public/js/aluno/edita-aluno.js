@@ -1,21 +1,23 @@
 ﻿
 $("#salvar-aluno-atualizar").click(function (e) {
 
-        let id = window.location.href;
-        id = id.split('/');
-        let idAluno = id[5]
+    let id = window.location.href;
+    id = id.split('/');
+    let idAluno = id[5]
 
-        var nome = $("#nome_aluno-atualizar").val();
-        var numero = $("#numero_aluno-atualizar").val();
-        var email = $("#email_aluno-atualizar").val();
-        var ra = $("#ra_aluno-atualizar").val();
-        var bairro = $("#bairro_aluno-atualizar").val();
-        var rua = $("#rua_aluno-atualizar").val();
-        var num_casa = $("#numero_casa_aluno-atualizar").val();
+    var nome = $("#nome_aluno-atualizar").val();
+    var numero = $("#numero_aluno-atualizar").val();
+    var email = $("#email_aluno-atualizar").val();
+    var ra = $("#ra_aluno-atualizar").val();
+    var bairro = $("#bairro_aluno-atualizar").val();
+    var rua = $("#rua_aluno-atualizar").val();
+    var num_casa = $("#numero_casa_aluno-atualizar").val();
 
-        var json = serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa);
+    var json = serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa);
 
-        realizaRequest(idAluno, json);
+    realizaRequest(idAluno, json);
+
+    window.location.href= "/aluno/listar-todos";
     });
 
 function realizaRequest(idAluno, json) {
@@ -46,6 +48,5 @@ $("#limpar-aluno-atualizar").click(function (e) {
     $("#rua_aluno-atualizar").val("");
     $("#numero_casa_aluno-atualizar").val("");
 });
-
 
 
