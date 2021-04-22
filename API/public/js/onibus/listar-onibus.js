@@ -1,8 +1,7 @@
 $(".editar_onibus").click(function (e) {
     e.preventDefault();
-    e.stopPropagation();
-    var idOnibus = $(this).data("id-onibus");
 
+    var idOnibus = $(this).data("id-onibus");
     window.location.href="/onibus/atualizar/" + idOnibus
 });
 
@@ -13,17 +12,15 @@ $(".remove_onibus").click(function (e){
     requestDeleteOnibus(idOnibus)
 });
 
-
 function requestDeleteOnibus(idOnibus) {
-
     $.ajax({
         url: '/onibus/' +idOnibus,
         type: 'DELETE',
         success: function() {
-            menssagemDeSucesso('Ônibus removido com sucesso!!')
+            menssagemDeSucesso('Ônibus excluido com sucesso!!');
         },
         error: function (){
-            menssagemDeErro('Ouve um problema!!, ônibus não excluido')
+            menssagemDeErro('Ouve um problema!!, ônibus não excluido');
         }
     });
 }

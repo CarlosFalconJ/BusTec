@@ -1,4 +1,6 @@
-$("#salvar-onibus-cadastro").click(function () {
+$("#salvar-onibus-cadastro").click(function (e) {
+    e.preventDefault()
+
     var motorista_responsavel = $("#nome_motorista_onibus-cadastro").val();
     var placa = $("#numero_placa_onibus-cadastro").val();
 
@@ -16,7 +18,6 @@ function serializadorOnibus(motorista_resposavel, placa) {
         "motorista_responsavel": motorista_resposavel,
         "placa": placa,
     }
-
     var json = JSON.stringify(dados);
 
     return json;
@@ -24,6 +25,7 @@ function serializadorOnibus(motorista_resposavel, placa) {
 
 $("#limpar-onibus-cadastro").click( function (e) {
     e.preventDefault();
+
     $("#nome_motorista_onibus-cadastro").val("");
     $("#numero_placa_onibus-cadastro").val("");
 })

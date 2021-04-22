@@ -1,6 +1,5 @@
 $("#salvar-onibus-atualizar").click(function (e) {
     e.preventDefault()
-    e.stopPropagation();
 
     let id = window.location.href;
     id = id.split('/');
@@ -9,15 +8,11 @@ $("#salvar-onibus-atualizar").click(function (e) {
     var motorista_responsavel = $("#nome_motorista_onibus-atualizar").val();
     var placa = $("#numero_placa_onibus-atualizar").val();
 
-
     var json = serializadorOnibus(motorista_responsavel, placa);
-
     realizaRequestAtualizaOnibus(idOnibus, json);
-
 });
 
 function realizaRequestAtualizaOnibus(idOnibus, json) {
-
     $.ajax({
         type: 'PUT',
         url: 'http://localhost:8080/onibus/' + idOnibus,
