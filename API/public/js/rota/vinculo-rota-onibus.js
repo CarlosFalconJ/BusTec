@@ -11,4 +11,11 @@ $("#salvar_vinculo-rota-onibus").click(function (e) {
     })
 })
 
+$("#limpar_vinculo-rota-onibus").click(function (e) {
+    e.preventDefault();
+
+    $(".escolha_vinculo-rota").val("Selecione a rota");
+    $(".escolha_vinculo-onibus").val("Selecione o ônibus");
+
+})
 
