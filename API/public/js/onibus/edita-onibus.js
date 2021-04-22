@@ -1,9 +1,9 @@
 $("#salvar-onibus-atualizar").click(function (e) {
-    e.preventDefault()
+    e.preventDefault();
 
     let id = window.location.href;
     id = id.split('/');
-    let idOnibus = id[5]
+    let idOnibus = id[5];
 
     var motorista_responsavel = $("#nome_motorista_onibus-atualizar").val();
     var placa = $("#numero_placa_onibus-atualizar").val();
@@ -19,14 +19,15 @@ function realizaRequestAtualizaOnibus(idOnibus, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        menssagemDeSucesso('ônibus atualizado com sucesso!!')
+        menssagemDeSucesso('Ônibus atualizado com sucesso!!');
     }).fail(function () {
-        menssagemDeErro('ônibus não atualizado!!, verifique os dados e tente novamente')
+        menssagemDeErro('Ônibus não atualizado!!, verifique os dados e tente novamente');
     });
 }
 
 $("#limpar-onibus-atualizar").click( function (e) {
     e.preventDefault();
+
     $("#nome_motorista_onibus-atualizar").val("");
     $("#numero_placa_onibus-atualizar").val("");
 })
