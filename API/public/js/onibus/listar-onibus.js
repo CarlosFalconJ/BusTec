@@ -7,11 +7,10 @@ $(".editar_onibus").click(function (e) {
 });
 
 $(".remove_onibus").click(function (e){
+    e.preventDefault();
     var idOnibus = $(this).data("id-onibus");
 
     requestDeleteOnibus(idOnibus)
-
-    window.location.href="/onibus/listar-todos"
 });
 
 
@@ -20,8 +19,11 @@ function requestDeleteOnibus(idOnibus) {
     $.ajax({
         url: '/onibus/' +idOnibus,
         type: 'DELETE',
-        success: function(result) {
-            alert('removido com sucesso')
+        success: function() {
+            menssagemDeSucesso('Ônibus removido com sucesso!!')
+        },
+        error: function (){
+            menssagemDeErro('Ouve um problema!!, ônibus não excluido')
         }
     });
 }
