@@ -189,10 +189,20 @@ listar_ponto_html:
 
 ## Routes Rota Onibus ##
 
+   ## API ##
+
 juntar_rota_onibus:
    path: /rota/{id_rota}/onibus/{id_onibus}
    controller: App\Controller\BustecApi\RotaController::juncaoRotaOnibus
    methods: POST
+
+   ## WEB ##
+
+vincular_rota_onibus_html:
+   path: /rota/vicular/rota-onibus
+   controller: App\Controller\BustecAdm\RotasRender::vinculaRotaOnibus
+   methods: GET
+
 
 ## Routes Rota Ponto ##
 
