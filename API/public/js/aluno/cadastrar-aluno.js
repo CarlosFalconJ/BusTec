@@ -14,12 +14,11 @@ $("#salvar-aluno-cadastro").click(function (e) {
     var json = serializadorAluno(nome, numero, email, ra, bairro,rua, num_casa)
 
     $.post("http://localhost:8080/onibus/"+ idOnibus + "/aluno", json, function () {
-        alert("cadastrado");
+        menssagemDeSucesso('Aluno cadastrado com sucesso!!');
+        window.location.href= "/aluno/listar-todos";
     }).fail(function (){
-        alert("falhou")
+        menssagemDeErro('Aluno não cadastrado!!, verifique os dados e tente novamente');
     })
-
-    window.location.href= "/aluno/listar-todos";
 });
 
 function serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa) {
