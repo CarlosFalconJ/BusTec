@@ -210,3 +210,10 @@ juntar_rota_ponto:
    path: /rota/{id_rota}/ponto/{id_ponto}
    controller: App\Controller\BustecApi\RotaController::juncaoRotaPonto
    methods: POST
+
+   ## WEB ##
+
+vincular_rota_ponto_html:
+   path: /rota/vicular/rota-ponto
+   controller: App\Controller\BustecAdm\RotasRender::vinculaRotaPonto
+   methods: GET
