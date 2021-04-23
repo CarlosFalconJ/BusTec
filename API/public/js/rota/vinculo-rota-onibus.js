@@ -5,7 +5,7 @@ $("#salvar_vinculo-rota-onibus").click(function (e) {
     var idOnibus = $(".escolha_vinculo-onibus").val();
 
     $.post("http://localhost:8080/rota/"+idRota +"/onibus/" + idOnibus, function () {
-        menssagemDeSucesso('Vinculo realizada com sucesso!!');
+        menssagemDeSucesso('Vinculo realizada com sucesso!!', '/rota/listar-todos');
     }).fail(function (){
         menssagemDeErro('Vinculo não realizado, verifique os dados e tente novamente');
     })

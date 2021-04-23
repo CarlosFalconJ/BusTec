@@ -17,7 +17,7 @@ function requestDeleteOnibus(idOnibus) {
         url: '/onibus/' +idOnibus,
         type: 'DELETE',
         success: function() {
-            menssagemDeSucesso('Ônibus excluido com sucesso!!');
+            menssagemDeSucesso('Ônibus excluido com sucesso!!', '/onibus/listar-todos');
         },
         error: function (){
             menssagemDeErro('Ouve um problema!!, ônibus não excluido');

@@ -21,7 +21,7 @@ function realizaRequestAtualizaPonto(idPonto, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        menssagemDeSucesso('Ponto atualizado com sucesso!!')
+        menssagemDeSucesso('Ponto atualizado com sucesso!!', '/ponto/listar-todos')
     }).fail(function () {
         menssagemDeErro('Ponto não atualizado!!, verifique os dados e tente novamente')
     });

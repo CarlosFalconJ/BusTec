@@ -17,7 +17,7 @@ function requestDeleteAluno(idAluno) {
         url: '/aluno/' +idAluno,
         type: 'DELETE',
         success: function() {
-            menssagemDeSucesso('Aluno excluido com sucesso!!')
+            menssagemDeSucesso('Aluno excluido com sucesso!!', '/aluno/listar-todos');
         },
         error: function () {
             menssagemDeErro('Ouve um problema!!, aluno não excluido')

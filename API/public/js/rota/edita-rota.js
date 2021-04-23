@@ -20,7 +20,7 @@ function realizaRequestAtualizaRota(idRota, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        menssagemDeSucesso('Rota atualizada com sucesso!!');
+        menssagemDeSucesso('Rota atualizada com sucesso!!', '/rota/listar-todos');
     }).fail(function (msg) {
         menssagemDeErro('Rota não atualizada!!, verifique os dados e tente novamente');
     });

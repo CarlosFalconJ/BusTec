@@ -17,7 +17,7 @@ function requestDeletePonto(idPonto) {
         url: '/ponto/' +idPonto,
         type: 'DELETE',
         success: function(result) {
-            menssagemDeSucesso('Ponto removido com sucesso!!')
+            menssagemDeSucesso('Ponto removido com sucesso!!', '/ponto/listar-todos')
         },
         error: function (){
             menssagemDeErro('Ouve um problema!!, ponto não removido')

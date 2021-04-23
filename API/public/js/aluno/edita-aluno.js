@@ -26,7 +26,7 @@ function realizaRequestAtualizaAluno(idAluno, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        menssagemDeSucesso('Dados do aluno atualizados com sucesso!!');
+        menssagemDeSucesso('Dados do aluno atualizados com sucesso!!', '/aluno/listar-todos');
     }).fail(function () {
         menssagemDeErro('Dados não aatualizados!!, verifique os dados e tente novamente');
     });
