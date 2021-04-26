@@ -22,46 +22,46 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="nome_aluno">Nome: </label>
-                <input type="text" class="form-control" id="nome_aluno-cadastro" placeholder="Digite o nome do aluno">
+                <input type="text" class="form-control" id="nome_aluno-cadastro" placeholder="Digite o nome">
             </div>
 
             <div class="form-group col-md-3">
-                <label for="numero_aluno">Numero para contato: </label>
-                <input type="text" class="form-control" id="numero_aluno-cadastro" placeholder="Digite o número para contato">
+                <label for="numero_aluno">Número para contato: </label>
+                <input type="number" class="form-control" id="numero_aluno-cadastro" placeholder="Digite o número para contato">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email_aluno">Email: </label>
-                <input type="text" class="form-control" id="email_aluno-cadastro" placeholder="Digite o email do aluno">
+                <input type="text" class="form-control" id="email_aluno-cadastro" placeholder="Digite o email">
             </div>
 
             <div class="form-group col-md-3" >
                 <label for="ra_aluno">RA: </label>
-                <input type="text" class="form-control" id="ra_aluno-cadastro" placeholder="Digite o RA do aluno">
+                <input type="text" class="form-control" id="ra_aluno-cadastro" placeholder="Digite o RA">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="bairro_aluno">Bairro: </label>
-                <input type="text" class="form-control" id="bairro_aluno-cadastro" placeholder="Digite o bairro do aluno">
+                <input type="text" class="form-control" id="bairro_aluno-cadastro" placeholder="Digite o bairro">
             </div>
 
             <div class="form-group col-md-3">
                 <label for="rua_aluno">Rua: </label>
-                <input type="text" class="form-control" id="rua_aluno-cadastro" placeholder="Digite a rua do aluno">
+                <input type="text" class="form-control" id="rua_aluno-cadastro" placeholder="Digite a rua">
             </div>
 
             <div class="form-group col-md-1">
                 <label for="numero_casa_aluno">Nº: </label>
-                <input type="text" class="form-control" id="numero_casa_aluno-cadastro" placeholder="Ex. 46">
+                <input type="number" class="form-control" id="numero_casa_aluno-cadastro" placeholder="Ex. 46">
             </div>
 
             <div class="form-group col-md-2 select-options">
-                <label for="escolha_onibus">Onibus: </label>
+                <label for="escolha_onibus">Ônibus: </label>
                 <select class="custom-select escolha-onibus">
-                    <option selected>Selecione o onibus</option>
+                    <option selected>Selecione o ônibus</option>
                     {% for onibus in AllOnibus %}
                     <option value="{{ onibus.id }}">{{ onibus.placa }}</option>
                     {% endfor %}

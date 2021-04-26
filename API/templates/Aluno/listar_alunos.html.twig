@@ -13,12 +13,13 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Numero</th>
                 <th scope="col">Email</th>
+                <th scope="col">Número</th>
                 <th scope="col">RA</th>
                 <th scope="col">Bairro</th>
                 <th scope="col">Rua</th>
                 <th scope="col">Nº</th>
+                <th scope="col">Placa ônibus</th>
                 <th scope="col">Opções</th>
             </tr>
         </thead>
@@ -33,6 +34,7 @@
                     <td>{{ aluno.bairro }}</td>
                     <td>{{ aluno.rua }}</td>
                     <td>{{ aluno.numero_casa }}</td>
+                    <td>{{ aluno.placa|default('-')}}</td>
                     <td>
                         <i data-id-aluno="{{ aluno.id }}" class="btn btn-sm btn-success editar_alunos">Editar</i>
                         <i data-id-aluno="{{ aluno.id }}" class="btn btn-sm btn-danger remove_alunos">Apagar</i>
