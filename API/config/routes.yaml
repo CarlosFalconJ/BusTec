@@ -20,7 +20,7 @@ buscar_todos_alunos:
    methods: GET
 
 atualizar_aluno:
-   path: /aluno/{id}
+   path: onibus/{id_onibus}/aluno/{id}
    controller: App\Controller\BustecApi\AlunoController::updateAluno
    methods: PUT
 
