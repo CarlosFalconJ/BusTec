@@ -38,7 +38,7 @@ buscar_um_aluno:
 
 adicionar_aluno_html:
     path: /aluno/cadastro
-    controller: App\Controller\BustecAdm\AlunoRender::cadastroALuno
+    controller: App\Controller\BustecAdm\AlunoRender::cadastroAluno
     methods: GET
 
 atualizar_aluno_html:
