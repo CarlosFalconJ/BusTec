@@ -42,14 +42,24 @@
                 <input type="text" class="form-control" id="bairro_aluno-atualizar" placeholder="Digite o bairro">
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="rua_aluno">Rua: </label>
                 <input type="text" class="form-control" id="rua_aluno-atualizar" placeholder="Digite a rua">
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-1">
                 <label for="numero_casa_aluno">Nº: </label>
                 <input type="number" class="form-control" id="numero_casa_aluno-atualizar" placeholder="Ex. 46">
+            </div>
+
+            <div class="form-group col-md-2 select-options">
+                <label for="escolha_onibus">Ônibus: </label>
+                <select class="custom-select escolha-onibus">
+                    <option selected>Selecione o ônibus</option>
+                    {% for onibus in AllOnibus %}
+                        <option value="{{ onibus.id }}">{{ onibus.placa }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
 
