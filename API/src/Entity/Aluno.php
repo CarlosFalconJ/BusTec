@@ -54,7 +54,7 @@ class Aluno implements \JsonSerializable
 
     /**
      * @ORM\ManyToOne(targetEntity="Onibus")
-     * @ORM\JoinColumn(name="id_onibus", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_onibus", referencedColumnName="id", nullable=true)
      */
     private $onibus;
 
