@@ -27,7 +27,7 @@ class AlunoRender extends AbstractController
         $this->alunoRepository = $alunoRepository;
     }
 
-    public function cadastroALuno()
+    public function cadastroAluno()
     {
         $alunoService = new AlunoService($this->em, $this->alunoRepository);
         $onibus =$alunoService->buscarOnibus();
@@ -37,7 +37,10 @@ class AlunoRender extends AbstractController
 
     public function atualizarAluno()
     {
-        return $this->render('Aluno\atualizar_aluno.html.twig');
+        $alunoService = new AlunoService($this->em, $this->alunoRepository);
+        $onibus =$alunoService->buscarOnibus();
+
+        return $this->render('Aluno\atualizar_aluno.html.twig', ["AllOnibus" => $onibus]);
     }
 
     public function listarAlunos()
