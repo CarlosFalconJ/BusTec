@@ -13,16 +13,17 @@ $("#salvar-aluno-atualizar").click(function (e) {
     var bairro = $("#bairro_aluno-atualizar").val();
     var rua = $("#rua_aluno-atualizar").val();
     var num_casa = $("#numero_casa_aluno-atualizar").val();
+    var idOnibus = $(".escolha-onibus").val();
 
     var json = serializadorAluno(nome, numero, email, ra, bairro, rua, num_casa);
 
-    realizaRequestAtualizaAluno(idAluno, json);
+    realizaRequestAtualizaAluno(idAluno, idOnibus, json);
 });
 
-function realizaRequestAtualizaAluno(idAluno, json) {
+function realizaRequestAtualizaAluno(idAluno, idOnibus, json) {
     $.ajax({
         type: 'PUT',
-        url: 'http://localhost:8080/aluno/' + idAluno,
+        url: 'http://localhost:8080/onibus/'+ idOnibus +'/aluno/' +idAluno,
         contentType: 'application/json',
         data: json
     }).done(function () {
