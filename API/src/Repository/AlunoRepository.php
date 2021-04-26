@@ -68,8 +68,8 @@ class AlunoRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
 
-        $qb->select('a.id, a.nome, a.email, a.numero_contato, a.ra, a.bairro, a.rua, a.numero_casa')
-            ->from(Aluno::class, 'a');
+        $qb->select('a.id, a.nome, a.email, a.numero_contato, a.ra, a.bairro, a.rua, a.numero_casa, o.placa')
+            ->from(Aluno::class, 'a')->leftJoin(Onibus::class, 'o', 'with', 'a.onibus = o.id');
 
         return $qb->getQuery()->getArrayResult();
 
