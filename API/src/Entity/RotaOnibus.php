@@ -20,13 +20,13 @@ class RotaOnibus implements \JsonSerializable
 
     /**
      * @ORM\ManyToOne(targetEntity="Rota")
-     * @ORM\JoinColumn(name="id_rota", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_rota", referencedColumnName="id", onDelete="CASCADE")
      */
     private $rota;
 
     /**
      * @ORM\ManyToOne(targetEntity="Onibus")
-     * @ORM\JoinColumn(name="id_onibus", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_onibus", referencedColumnName="id", onDelete="CASCADE")
      */
     private $onibus;
 
