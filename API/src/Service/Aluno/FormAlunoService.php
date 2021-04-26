@@ -50,10 +50,11 @@ class FormAlunoService
         return $alunoInfo;
     }
 
-    public function atualizar($dadosEmJson, $id)
+    public function atualizar($dadosEmJson, $id, $id_onibus)
     {
         $aluno = $this->getAluno($id);
         $alunoExiste = !is_null($aluno);
+        $getAtualizaAluno = $this->getAtualizaAluno($aluno, $id_onibus);
         $alunoInfo = null;
 
         if ($alunoExiste){
@@ -69,7 +70,7 @@ class FormAlunoService
             $formAluno->setParseAluno($parseAluno);
             $formAluno->setAlunoStorage($formAlunoStorage);
 
-            $alunoInfo = $formAluno->atualizar($dadosEmJson, $aluno);
+            $alunoInfo = $formAluno->atualizar($dadosEmJson, $getAtualizaAluno);
         } else {
             return new \Exception("Aluno inexistente", Response::HTTP_NOT_FOUND);
         }
@@ -148,6 +149,22 @@ class FormAlunoService
 
             $aluno->setOnibus($onibus);
         } else {
+            return new \Exception("Onubus invalido", Response::HTTP_NOT_FOUND);
+        }
+
+        return $aluno;
+
+    }
+
+    public function getAtualizaAluno($aluno, $onibus)
+    {
+        $id_onibus = isset($onibus) ? $onibus : 0;
+        $onibusValido = ($id_onibus > 0);
+
+        if ($onibusValido){
+            $onibus = $this->em->getReference(Onibus::class, $id_onibus);
+            $aluno->setOnibus($onibus);
+        }else {
             return new \Exception("Onubus invalido", Response::HTTP_NOT_FOUND);
         }
 
