@@ -42,12 +42,12 @@ class AlunoController
        return $response;
     }
 
-    public function updateAluno(int $id, Request $request)
+    public function updateAluno(int $id, Request $request,int $id_onibus)
     {
         $dadosEmJson = json_decode($request->getContent());
 
         $formAlunoService = new FormAlunoService($this->em, $this->dadosDoRequest);
-        $aluno =$formAlunoService->atualizar($dadosEmJson, $id);
+        $aluno =$formAlunoService->atualizar($dadosEmJson, $id, $id_onibus);
 
         $response = new ResponseHelper(true, $aluno, Response::HTTP_OK );
         return $response->getResponse();
