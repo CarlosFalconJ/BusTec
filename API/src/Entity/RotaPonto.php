@@ -20,13 +20,13 @@ class RotaPonto implements \JsonSerializable
 
     /**
      * @ORM\ManyToOne(targetEntity="Rota")
-     * @ORM\JoinColumn(name="id_rota", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_rota", referencedColumnName="id", onDelete="CASCADE")
      */
     private $rota;
 
     /**
      * @ORM\ManyToOne(targetEntity="Ponto")
-     * @ORM\JoinColumn(name="id_ponto", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_ponto", referencedColumnName="id", onDelete="CASCADE")
      */
     private $ponto;
 
