@@ -18,7 +18,7 @@
 
         </tr>
         </thead>
-        <tbody id="tabela-alunos">
+        <tbody>
         {% for rota in rotas %}
             <tr>
                 <td>{{ rota.id }}</td>
@@ -27,6 +27,7 @@
                 <td>
                     <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-success editar_rota">Editar</i>
                     <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-danger remove_rota">Apagar</i>
+                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-primary listar_vinculos_rota">Vínculos</i>
                 </td>
             </tr>
         {% endfor %}

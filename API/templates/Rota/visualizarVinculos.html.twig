@@ -1,0 +1,60 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block corpo %}
+
+    <div class="box-header with-border">
+        <section class="nav_top">
+            <div class="h1_cadastro"><h1>Mostrar Vinculos</h1></div>
+        </section>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <h2 for="nome_rota-cadastro">Rota - ônibus</h2>
+        </div>
+        <div class="form-group col-md-5">
+            <h2 for="nome_rota-cadastro">Rota - Ponto</h2>
+        </div>
+
+    </div>
+
+
+    <div class="wrap">
+        <table class="table table-striped table-dark col-md-5 vinculo">
+            <thead>
+            <tr>
+                <th scope="col">Nome da rota</th>
+                <th scope="col">Placa do ônibus</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for rotaOnibus in rotasOnibus %}
+                <tr>
+                    <td>{{ rotaOnibus.nome }}</td>
+                    <td>{{ rotaOnibus.placa }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="table table-striped table-dark col-md-5 vinculo">
+            <thead>
+            <tr>
+                <th scope="col">Nome da rota</th>
+                <th scope="col">Nome do ponto</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for rotaPonto in rotasPontos %}
+                <tr>
+                    <td>{{ rotaPonto.nome }}</td>
+                    <td>{{ rotaPonto.nome_ponto }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}
