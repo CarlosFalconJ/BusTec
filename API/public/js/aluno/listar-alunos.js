@@ -9,10 +9,10 @@ $(".remove_alunos").click(function (e){
     e.preventDefault();
 
     var idAluno = $(this).data("id-aluno");
-    requestDeleteAluno(idAluno)
+    mensagemConfirmacao("Deseja Excluir o aluno?", funcDeleteAluno, idAluno);
 });
 
-function requestDeleteAluno(idAluno) {
+var funcDeleteAluno = function requestDeleteAluno(idAluno) {
     $.ajax({
         url: '/aluno/' +idAluno,
         type: 'DELETE',

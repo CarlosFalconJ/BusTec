@@ -6,9 +6,10 @@ $(".editar_rota").click(function (e) {
 });
 
 $(".remove_rota").click(function (e){
-    var idRota = $(this).data("id-rota");
+    e.preventDefault()
 
-    requestDeleteRota(idRota);
+    var idRota = $(this).data("id-rota");
+    mensagemConfirmacao("Deseja excluir essa Rota? A exclusão acarretará na exclusão dos vínculos relacionados a ela!!", funcDeleteRota, idRota);
 });
 
 $(".listar_vinculos_rota").click(function (e) {
@@ -18,7 +19,7 @@ $(".listar_vinculos_rota").click(function (e) {
     window.location.href="/rota/vinculos/" +idRota;
 })
 
-function requestDeleteRota(idRota) {
+var funcDeleteRota = function requestDeleteRota(idRota) {
     $.ajax({
         url: '/rota/' + idRota,
         type: 'DELETE',

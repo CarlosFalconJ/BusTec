@@ -70,3 +70,25 @@ function menssagemDeExcluir(texto) {
         window.location.reload();
     });
 }
+
+function mensagemConfirmacao(texto, func, id) {
+        iziToast.question({
+            timeout: 10000,
+            position: 'topCenter',
+            title: 'Remove',
+            message: texto,
+            buttons: [
+                ['<button><b>Sim</b></button>', function (instance, toast) {
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    func(id);
+                }, true],
+                ['<button>Não</button>', function (instance, toast) {
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                }],
+            ],
+            onClosing: function () {
+            }
+        });
+        $(document).on('iziToast-close', function () {
+        });
+}

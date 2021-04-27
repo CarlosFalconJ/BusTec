@@ -9,10 +9,10 @@ $(".remove_ponto").click(function (e){
     e.preventDefault();
 
     var idPonto = $(this).data("id-ponto");
-    requestDeletePonto(idPonto)
+    mensagemConfirmacao("Deseja excluir esse Ponto? A exclusão acarretará na exclusão dos vínculos relacionados a ele!!", funcDeletePonto, idPonto);
 });
 
-function requestDeletePonto(idPonto) {
+var funcDeletePonto = function requestDeletePonto(idPonto) {
     $.ajax({
         url: '/ponto/' +idPonto,
         type: 'DELETE',
