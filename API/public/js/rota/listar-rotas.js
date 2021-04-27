@@ -11,6 +11,13 @@ $(".remove_rota").click(function (e){
     requestDeleteRota(idRota);
 });
 
+$(".listar_vinculos_rota").click(function (e) {
+    e.preventDefault();
+
+    var idRota = $(this).data("id-rota");
+    window.location.href="/rota/vinculos/" +idRota;
+})
+
 function requestDeleteRota(idRota) {
     $.ajax({
         url: '/rota/' + idRota,
