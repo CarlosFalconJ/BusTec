@@ -6,6 +6,7 @@ namespace App\Service\Rota;
 
 use App\Repository\RotaRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\expr;
 
 class RotaService
 {
@@ -42,4 +43,18 @@ class RotaService
         $pontos = $this->rotaRepository->buscaPontosNomeID();
         return $pontos;
     }
+
+    public function buscaVinculadosRotaOnibus($id_rota)
+    {
+        $rotasOnibus = $this->rotaRepository->buscarVinculosOnibus($id_rota);
+
+        return $rotasOnibus;
+    }
+
+    public function buscaVinculadosRotaPonto($id_rota)
+    {
+        $rotasPonto= $this->rotaRepository->buscarVinculosPonto($id_rota);
+        return $rotasPonto;
+    }
+
 }
