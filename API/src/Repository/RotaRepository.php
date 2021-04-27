@@ -6,7 +6,10 @@ use App\Controller\BustecAdm\RotasRender;
 use App\Entity\Onibus;
 use App\Entity\Ponto;
 use App\Entity\Rota;
+use App\Entity\RotaOnibus;
+use App\Entity\RotaPonto;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\Type;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -94,4 +97,37 @@ class RotaRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getArrayResult();
     }
+
+    public function buscarVinculosOnibus($rota)
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('ro.id, r.nome, o.placa')
+            ->from(Rota::class, 'r')
+            ->innerJoin(RotaOnibus::class, 'ro','with', 'r.id = ro.rota')
+            ->innerJoin(Onibus::class, 'o','with','ro.onibus = o.id')
+            ->where(
+                $qb->expr()->eq('r.id', ':rota')
+            )->setParameter('rota' , $rota , Type::INTEGER);
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function buscarVinculosPonto($rota)
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('rp.id, r.nome, p.nome as nome_ponto')
+            ->from(Rota::class, 'r')
+            ->innerJoin(RotaPonto::class, 'rp','with', 'r.id = rp.rota')
+            ->innerJoin(Ponto::class, 'p', 'with','rp.ponto = p.id')
+            ->where(
+                $qb->expr()->eq('r.id', ':rota')
+            )->setParameter('rota' , $rota , Type::INTEGER);
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
 }
