@@ -172,3 +172,18 @@ body {
     line-height: 1.2;
     color: inherit;
 }
+
+.wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.vinculo {
+    border: 2px solid #000000 !important;
+}
+
+.label-vinculo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
