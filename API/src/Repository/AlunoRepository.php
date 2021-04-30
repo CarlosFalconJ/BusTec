@@ -74,4 +74,16 @@ class AlunoRepository extends ServiceEntityRepository
         return $qb->getQuery()->getArrayResult();
 
     }
+
+    public function buscaTotalAlunos()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('COUNT(a.id) as qtd_alunos')
+            ->from(Aluno::class, 'a');
+
+        return $qb->getQuery()->getArrayResult();
+
+    }
 }

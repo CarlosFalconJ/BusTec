@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Ponto;
+use App\Entity\Rota;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -54,6 +55,17 @@ class PontoRepository extends ServiceEntityRepository
         $qb = $em->createQueryBuilder();
 
         $qb->select('p.id, p.nome, p.bairro, p.rua, p.ponto_referencia')
+            ->from(Ponto::class, 'p');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function buscaTotalPontos()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('COUNT(p.id) as qtd_pontos')
             ->from(Ponto::class, 'p');
 
         return $qb->getQuery()->getArrayResult();

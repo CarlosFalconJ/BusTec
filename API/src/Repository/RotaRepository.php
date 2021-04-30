@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Controller\BustecAdm\RotasRender;
+use App\Entity\Aluno;
 use App\Entity\Onibus;
 use App\Entity\Ponto;
 use App\Entity\Rota;
@@ -126,6 +127,17 @@ class RotaRepository extends ServiceEntityRepository
             ->where(
                 $qb->expr()->eq('r.id', ':rota')
             )->setParameter('rota' , $rota , Type::INTEGER);
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function buscaTotalRotas()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('COUNT(r.id) as qtd_rotas')
+            ->from(Rota::class, 'r');
 
         return $qb->getQuery()->getArrayResult();
     }

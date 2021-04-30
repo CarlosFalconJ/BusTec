@@ -59,4 +59,15 @@ class OnibusRepository extends ServiceEntityRepository
         return $qb->getQuery()->getArrayResult();
 
     }
+
+    public function buscarTotalOnibus()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select('COUNT(o.id) as qtd_onibus')
+            ->from(Onibus::class, 'o');
+
+        return $qb->getQuery()->getArrayResult();
+    }
 }
