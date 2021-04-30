@@ -187,3 +187,29 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.row-home-top{
+    height: 300px;
+    padding: .25rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-home{
+    padding: .25rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body{
+    color: white;
+    background-color: #333333;
+    border-color: #FFC033 !important;
+}
+
+.button-amarelo{
+    background-color: #FFC033;
+    border-color: white;
+}
