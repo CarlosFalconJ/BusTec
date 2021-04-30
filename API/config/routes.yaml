@@ -2,7 +2,7 @@
 
 base_html:
    path: /
-   controller: App\Controller\BustecAdm\HomeRender::home
+   controller: App\Controller\BustecAdm\HomeRender::buscaTotais
    methods: GET
 
 
@@ -212,6 +212,8 @@ vincular_rota_onibus_html:
 
 ## Routes Rota Ponto ##
 
+ ## API ##
+
 juntar_rota_ponto:
    path: /rota/{id_rota}/ponto/{id_ponto}
    controller: App\Controller\BustecApi\RotaController::juncaoRotaPonto
@@ -223,3 +225,21 @@ vincular_rota_ponto_html:
    path: /rota/vicular/rota-ponto
    controller: App\Controller\BustecAdm\RotasRender::vinculaRotaPonto
    methods: GET
+
+## Routes Login ##
+
+   ## API ##
+
+login_api:
+   path: /login
+   controller: App\Controller\BustecApi\LoginController::index
+   methods: POST
+
+   ## WEB ##
+
+login_web:
+   path: /bustec/login
+   controller: App\Controller\BustecAdm\LoginRender::login
+   methods: GET
+
+
