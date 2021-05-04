@@ -1,5 +1,5 @@
 $("#botao-logout").click(function (e) {
     e.preventDefault()
 
-    mensagemConfirmacaoDeLogout('Deseja fazer logout?', '/bustec/login');
+    mensagemConfirmacaoDeLogout('Deseja sair?', '/bustec/login');
 });
