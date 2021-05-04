@@ -27,6 +27,7 @@ function menssagemDeSucesso(texto, url) {
         position: 'topCenter',
         title: 'Sucesso',
         message: texto,
+
         buttons: [
             ['<button>Ok</button>',function (instance, toast){
                 instance.hide({
@@ -91,4 +92,26 @@ function mensagemConfirmacao(texto, func, id) {
         });
         $(document).on('iziToast-close', function () {
         });
+}
+
+function mensagemConfirmacaoDeLogout(texto, url) {
+    iziToast.error({
+        timeout: 10000,
+        position: 'topCenter',
+        title: 'Logout',
+        message: texto,
+        buttons: [
+            ['<button><b>Sim</b></button>', function (instance, toast) {
+                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                window.location.href = url;
+            }, true],
+            ['<button>Não</button>', function (instance, toast) {
+                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            }],
+        ],
+        onClosing: function () {
+        }
+    });
+    $(document).on('iziToast-close', function () {
+    });
 }
