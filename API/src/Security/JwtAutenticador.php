@@ -8,8 +8,12 @@ use App\Repository\UserRepository;
 use Firebase\JWT\JWT;
 use phpDocumentor\Reflection\Types\Object_;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,9 +24,15 @@ class JwtAutenticador extends AbstractGuardAuthenticator
 {
     private $repository;
 
-    public function __construct(UserRepository $repository)
+    private $urlGenerator;
+
+    private $session;
+
+    public function __construct(UserRepository $repository, UrlGeneratorInterface $urlGenerator, SessionInterface $session)
     {
         $this->repository = $repository;
+        $this->urlGenerator = $urlGenerator;
+        $this->session = $session;
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
@@ -70,9 +80,9 @@ class JwtAutenticador extends AbstractGuardAuthenticator
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        return new JsonResponse([
-            'erro' => 'Falha na autenticação'
-        ], Response::HTTP_UNAUTHORIZED);
+        $this->session->getFlashBag()->add('note', 'Você não tem acesso á essa pagina!!');
+
+        return new RedirectResponse($this->urlGenerator->generate('login_web'));
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
