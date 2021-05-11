@@ -46,7 +46,8 @@ body {
 .cover-conteiner-form{
     max-width: 90%;
     text-align: left;
-    margin-left: 20%;
+    margin-left: 30%;
+    margin-right: 15%;
 }
 .masthead {
     margin-bottom: 3rem;
@@ -189,9 +190,7 @@ body {
 }
 
 .row-home-top{
-    height: 300px;
     padding: .25rem 0;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -227,4 +226,10 @@ body {
 ion-icon{
     font-size: 100px;
     color: #FFC033;
+}
+
+.position-home{
+    margin-left: 20%; !important;
+    margin-right: 20%; !important;
+
 }
