@@ -44,7 +44,7 @@ body {
     max-width: 100%;
 }
 .cover-conteiner-form{
-    max-width: 90%;
+    max-width: 100%;
     text-align: left;
     margin-left: 30%;
     margin-right: 15%;
@@ -110,7 +110,7 @@ body {
 
 }
 
-.h1_cadastro{
+.h1_geral{
     color: white;
     background-color: #FFC033;
 }
@@ -177,6 +177,13 @@ body {
 .wrap {
     display: flex;
     justify-content: center;
+}
+.form-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 .vinculo {
