@@ -8,58 +8,60 @@
         </section>
     </div>
 
-    <div class="row row-home-top">
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body">
-                    <ion-icon src="/Imagens/man-outline.svg" width="100" height="100"></ion-icon>
-                    <h5 class="card-title">Total de alunos cadastrados</h5>
-                    {% for alunos in totalAlunos %}
-                        <p class="card-text">Total = {{ alunos.qtd_alunos }}</p>
-                    {% endfor %}
-                    <a href="/aluno/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
+    <div class="position-home">
+        <div class="row row-home-top">
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-body">
+                        <ion-icon src="/Imagens/man-outline.svg" width="100" height="100"></ion-icon>
+                        <h5 class="card-title">Total de alunos cadastrados</h5>
+                        {% for alunos in totalAlunos %}
+                            <p class="card-text">Total = {{ alunos.qtd_alunos }}</p>
+                        {% endfor %}
+                        <a href="/aluno/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-body">
+                        <ion-icon  src= "/Imagens/bus-outline.svg"> </ion-icon >
+                        <h5 class="card-title">Total de ônibus cadastrados</h5>
+                        {% for onibus in totalOnibus %}
+                            <p class="card-text">Total = {{ onibus.qtd_onibus }}</p>
+                        {% endfor %}
+                        <a href="/onibus/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body">
-                    <ion-icon  src= "/Imagens/bus-outline.svg"> </ion-icon >
-                    <h5 class="card-title">Total de ônibus cadastrados</h5>
-                    {% for onibus in totalOnibus %}
-                    <p class="card-text">Total = {{ onibus.qtd_onibus }}</p>
-                    {% endfor %}
-                    <a href="/onibus/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
+        <div class="row row-home">
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-body">
+                        <ion-icon src="/Imagens/shuffle-outline.svg" width="100" height="100"></ion-icon>
+                        <h5 class="card-title">Total de rotas cadastradas</h5>
+                        {% for rota in totalRotas %}
+                            <p class="card-text">Total = {{ rota.qtd_rotas }}</p>
+                        {% endfor %}
+                        <a href="/rota/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-body">
+                        <ion-icon src="/Imagens/location-outline.svg" width="100" height="100"></ion-icon>
+                        <h5 class="card-title">Total de pontos cadastrados</h5>
+                        {% for ponto in totalPontos %}
+                            <p class="card-text">Total = {{ ponto.qtd_pontos }}</p>
+                        {% endfor %}
+                        <a href="/ponto/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row row-home">
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body">
-                    <ion-icon src="/Imagens/shuffle-outline.svg" width="100" height="100"></ion-icon>
-                    <h5 class="card-title">Total de rotas cadastradas</h5>
-                    {% for rota in totalRotas %}
-                    <p class="card-text">Total = {{ rota.qtd_rotas }}</p>
-                    {% endfor %}
-                    <a href="/rota/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body">
-                    <ion-icon src="/Imagens/location-outline.svg" width="100" height="100"></ion-icon>
-                    <h5 class="card-title">Total de pontos cadastrados</h5>
-                    {% for ponto in totalPontos %}
-                        <p class="card-text">Total = {{ ponto.qtd_pontos }}</p>
-                    {% endfor %}
-                    <a href="/ponto/listar-todos" class="btn btn button-amarelo">Ir para listagem</a>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock%}
