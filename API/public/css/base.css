@@ -115,7 +115,7 @@ body {
     background-color: #FFC033;
 }
 
-.h2_geral{
+.h2_getal{
     color: #000000;
     border: #222222;
     font-size: 12px; !important;
@@ -230,7 +230,7 @@ body {
     height: 100px;
 }
 
-ion-icon{
+.icons-home{
     font-size: 100px;
     color: #FFC033;
 }
@@ -238,5 +238,40 @@ ion-icon{
 .position-home{
     margin-left: 20%; !important;
     margin-right: 20%; !important;
+}
 
+.icon-edit{
+    font-size: 20px;
+    border-radius: 3em;
+    align-items: center;
+}
+
+.icon-delete{
+    font-size: 20px;
+    border-radius: 3em;
+    align-content: center;
+}
+.icon-vinculo{
+    font-size: 20px;
+    border-radius: 3em;
+    align-content: center;
+}
+.btn-primary{
+ border-color: darkred;
+ border-radius: 3px;
+}
+
+.btn-danger{
+    border-color: darkblue;
+    border-radius: 3px;
+}
+
+.btn-success{
+    border-color: darkgreen;
+    border-radius: 3px;
+}
+.btn-lg{
+    background-color: yellow;
+    border-color: darkorange;
+    border-radius: 3px;
 }
