@@ -25,8 +25,12 @@
                 <td>{{ onibus.motorista_responsavel }}</td>
                 <td>{{ onibus.placa }}</td>
                 <td>
-                    <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-success editar_onibus">Editar</i>
-                    <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-danger remove_onibus">Apagar</i>
+                    <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-primary editar_onibus">
+                        <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
+                    </i>
+                    <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-danger remove_onibus">
+                        <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
+                    </i>
                 </td>
             </tr>
         {% endfor %}

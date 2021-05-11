@@ -25,9 +25,15 @@
                 <td>{{ rota.nome }}</td>
                 <td>{{ rota.cidade }}</td>
                 <td>
-                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-success editar_rota">Editar</i>
-                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-danger remove_rota">Apagar</i>
-                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-primary listar_vinculos_rota">Vínculos</i>
+                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-primary editar_rota">
+                        <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
+                    </i>
+                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-danger remove_rota">
+                        <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
+                    </i>
+                    <i data-id-rota="{{ rota.id }}" class="btn btn-sm btn-lg listar_vinculos_rota">
+                        <ion-icon src="/Imagens/git-compare-outline.svg" class="icon-vinculo"></ion-icon>
+                    </i>
                 </td>
             </tr>
         {% endfor %}
