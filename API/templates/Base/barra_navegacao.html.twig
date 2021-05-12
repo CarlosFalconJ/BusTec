@@ -3,49 +3,24 @@
         <nav class="navbar navbar-dark bg-dark navbar fixed-top">
            <div class="img-bustec" id="img-bustec"><img src="/Imagens/onibus.png" width="40" height="40" > <a href="/">BUSTEC </a></div>
 
-            <div class="dropdown">
-                <button class="dropdown-toggle botoes-navegacao" type="button" id="botao-navegacao-aluno" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Aluno
-                </button>
-                <div id="div-navegacao-aluno" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a id="cadastrar-aluno" class="dropdown-item" href="/aluno/cadastro">Cadastrar</a>
-                    <a id="listar-alunos" class="dropdown-item" href="/aluno/listar-todos">Listar</a>
-                </div>
+            <div class="nav-link">
+                <a id="listar-alunos" href="/aluno/listar-todos">Aluno</a>
             </div>
 
-            <div class="dropdown">
-                <button class="dropdown-toggle botoes-navegacao" type="button" id="botao-navegacao-onibus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Onibus
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a id="cadastrar-onibus" class="dropdown-item" href="/onibus/cadastro">Cadastrar</a>
-                    <a id="listar-onibus" class="dropdown-item" href="/onibus/listar-todos">Listar</a>
-                </div>
+            <div class="nav-link">
+                <a id="listar-onibus" href="/onibus/listar-todos">Ônibus</a>
             </div>
 
-            <div class="dropdown">
-                <button class="dropdown-toggle botoes-navegacao" type="button" id="botao-navegacao-rota" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Rota
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a id="cadastrar-rota" class="dropdown-item" href="/rota/cadastro">Cadastrar</a>
-                    <a id="listar-rota" class="dropdown-item" href="/rota/listar-todos">Listar</a>
-                    <a id="listar-rota" class="dropdown-item" href="/rota/vicular/rota-onibus">Vícular rota ao ônibus</a>
-                    <a id="listar-rota" class="dropdown-item" href="/rota/vicular/rota-ponto">Vícular rota ao ponto</a>
-                </div>
+            <div class="nav-link">
+                <a id="listar-ponto"  href="/ponto/listar-todos">Ponto</a>
             </div>
 
-            <div class="dropdown">
-                <button class="dropdown-toggle botoes-navegacao" type="button" id="botao-navegacao-ponto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ponto
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a id="cadastrar-ponto" class="dropdown-item" href="/ponto/cadastro">Cadastrar</a>
-                    <a id="listar-ponto" class="dropdown-item" href="/ponto/listar-todos">Listar</a>
-                </div>
+            <div class="nav-link">
+                <a id="listar-rota" href="/rota/listar-todos">Rota</a>
             </div>
-            <div>
-                <a class="nav-link" id="botao-logout" href="">Sair</a>
+
+            <div class="nav-link">
+                <a id="botao-logout" href="">Sair</a>
             </div>
         </nav>
     </div>
