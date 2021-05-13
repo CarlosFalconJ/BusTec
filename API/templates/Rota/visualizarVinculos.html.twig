@@ -8,55 +8,54 @@
         </section>
     </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <h2 for="nome_rota-cadastro">Rota - Ônibus</h2>
-        </div>
-        <div class="form-group col-md-5">
-            <h2 for="nome_rota-cadastro">Rota - Ponto</h2>
-        </div>
+    <table>
+        <tr>
+            <td>
+                <div class="inlainer">
+                    <div class="wrap">
+                        <h2 class="vinculo">Ônibus da rota</h2>
+                        <table class="table table-bordered vinculo">
+                            <thead>
+                            <tr>
+                                <th scope="col">Nome da rota</th>
+                                <th scope="col">Placa do ônibus</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for rotaOnibus in rotasOnibus %}
+                                <tr>
+                                    <td>{{ rotaOnibus.nome }}</td>
+                                    <td>{{ rotaOnibus.placa }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
 
-    </div>
-
-
-    <div class="wrap">
-        <table class="table table-striped table-dark col-md-5 vinculo">
-            <thead>
-            <tr>
-                <th scope="col">Nome da rota</th>
-                <th scope="col">Placa do ônibus</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for rotaOnibus in rotasOnibus %}
-                <tr>
-                    <td>{{ rotaOnibus.nome }}</td>
-                    <td>{{ rotaOnibus.placa }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <table class="table table-striped table-dark col-md-5 vinculo">
-            <thead>
-            <tr>
-                <th scope="col">Nome da rota</th>
-                <th scope="col">Nome do ponto</th>
-                <th scope="col">Horário</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for rotaPonto in rotasPontos %}
-                <tr>
-                    <td>{{ rotaPonto.nome }}</td>
-                    <td>{{ rotaPonto.nome_ponto }}</td>
-                    <td>{{ rotaPonto.horario }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
-
+                    <div class="wrap">
+                        <h2 class="vinculo">Pontos da rota</h2>
+                        <table class="table table-bordered vinculo">
+                            <thead>
+                            <tr>
+                                <th scope="col">Nome da rota</th>
+                                <th scope="col">Nome do ponto</th>
+                                <th scope="col">Horário</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for rotaPonto in rotasPontos %}
+                                <tr>
+                                    <td>{{ rotaPonto.nome }}</td>
+                                    <td>{{ rotaPonto.nome_ponto }}</td>
+                                    <td>{{ rotaPonto.horario }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
 
 {% endblock %}
