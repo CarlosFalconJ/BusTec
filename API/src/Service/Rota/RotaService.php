@@ -6,7 +6,9 @@ namespace App\Service\Rota;
 
 use App\Repository\RotaRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\expr;
+use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToArrayTransformer;
+use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
+
 
 class RotaService
 {
@@ -54,6 +56,16 @@ class RotaService
     public function buscaVinculadosRotaPonto($id_rota)
     {
         $rotasPonto= $this->rotaRepository->buscarVinculosPonto($id_rota);
+        $result = $rotasPonto['0'];
+        $horario = $result['horario'];
+
+        $dateTimeString  = new DateTimeToStringTransformer();
+        $dateTime = $dateTimeString->transform($horario);
+
+        $result['horario'] = $dateTime;
+
+        $rotasPonto['0'] = $result;
+
         return $rotasPonto;
     }
 
