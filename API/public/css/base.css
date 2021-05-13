@@ -176,8 +176,10 @@ body {
 }
 
 .wrap {
-    display: flex;
-    justify-content: center;
+    margin-left: 5%;
+    position:static;
+    display: inline;
+    float: left;
 }
 .form-row {
     display: -ms-flexbox;
@@ -188,7 +190,8 @@ body {
 }
 
 .vinculo {
-    border: 2px solid #000000 !important;
+    margin-left: 110% !important;
+    width: 100% !important;
 }
 
 .label-vinculo{
@@ -291,6 +294,16 @@ body {
 .position-cadastro-rota{
 
     display: table-cell;
-    /*margin-left: -70%; !important;*/
     padding: 10px;
+}
+
+.vinculo-pai{
+    width: 100%;
+}
+
+.inlainer{
+    width: 100%;
+}
+.label-vinculo-onibus{
+    margin-left: 26.5%;
 }
