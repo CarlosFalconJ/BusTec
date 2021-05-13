@@ -56,15 +56,24 @@ class RotaService
     public function buscaVinculadosRotaPonto($id_rota)
     {
         $rotasPonto= $this->rotaRepository->buscarVinculosPonto($id_rota);
-        $result = $rotasPonto['0'];
-        $horario = $result['horario'];
 
-        $dateTimeString  = new DateTimeToStringTransformer();
-        $dateTime = $dateTimeString->transform($horario);
 
-        $result['horario'] = $dateTime;
+        if ($rotasPonto){
+            for ($i = 0; $i < sizeof($rotasPonto); $i++){
+                $result = $rotasPonto[$i];
+                $horario = $result['horario'];
 
-        $rotasPonto['0'] = $result;
+                $dateTimeString  = new DateTimeToStringTransformer();
+                $dateTime = $dateTimeString->transform($horario);
+
+                $result['horario'] = $dateTime;
+
+                $rotasPonto[$i] = $result;
+            }
+
+        }else{
+            $rotasPonto = [];
+        }
 
         return $rotasPonto;
     }
