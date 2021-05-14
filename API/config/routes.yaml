@@ -202,6 +202,12 @@ juntar_rota_onibus:
    controller: App\Controller\BustecApi\RotaController::juncaoRotaOnibus
    methods: POST
 
+deletar_rota_onibus:
+   path: /rota/onibus/{id}
+   controller: App\Controller\BustecApi\RotaController::excluiJuncaoRotaOnibus
+   methods: DELETE
+
+
    ## WEB ##
 
 vincular_rota_onibus_html:
