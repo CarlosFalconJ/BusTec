@@ -79,6 +79,34 @@ class FormRotaOnibusService
         return $rota_onibus_info;
     }
 
+    public function atualizarRotaOnibus($id, $id_rota, $id_onibus)
+    {
+        $rota_onibus_Valid = $this->getRotaOnibus($id);
+        $rotaValid   = $this->getRota($id_rota);
+        $onibusValid = $this->getOnibus($id_onibus);
+
+        $rotaPontoInfo = null;
+
+        if ($rota_onibus_Valid && $rotaValid && $onibusValid){
+
+            $rota   = $this->em->getReference(Rota::class, $id_rota);
+            $onibus = $this->em->getReference(Onibus::class, $id_onibus);
+            $rota_onibus = $this->em->getReference(RotaOnibus::class, $id);
+
+            $rota_onibus->setRota($rota);
+            $rota_onibus->setOnibus($onibus);
+        } else {
+            return new \Exception("O vinculo ou os dados não conferem", Response::HTTP_NOT_FOUND);
+        }
+
+        $formRotaStorage = new FormRotaOnibusStorage($this->em);
+        $rota_onibus_regra = new RegraAtualizaRotaOnibus();
+        $rota_onibus_regra->setRotaOnibusStorage($formRotaStorage);
+        $rotaPontoInfo = $rota_onibus_regra->atualizar($rota_onibus);
+
+        return $rotaPontoInfo;
+    }
+
     public function getOnibus($id)
     {
         $id = isset($id) ? $id : 0;
