@@ -123,4 +123,15 @@ class RotaController
         $response = new ResponseHelper(true, $rota_ponto, Response::HTTP_OK );
         return $response->getResponse();
     }
+
+    public function updateRotaOnibus($id, Request $request, int $id_rota, int $id_onibus)
+    {
+        $dadosEmJson = json_decode($request->getContent());
+
+        $formRotaOnibusService = new FormRotaOnibusService($this->em, $this->dadosDoRequest);
+        $rota_onibus = $formRotaOnibusService->atualizarRotaOnibus($id, $id_rota, $id_onibus);
+
+        $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
+        return $response->getResponse();
+    }
 }
