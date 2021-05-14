@@ -80,6 +80,37 @@ class FormRotaPontoService
         return $rota_ponto_info;
     }
 
+    public function atualizarRotaPonto($dadosEmJson, $id, $id_rota,$id_ponto)
+    {
+        $rota_ponto_Valid = $this->getRotaPonto($id);
+        $rotaValid   = $this->getRota($id_rota);
+        $pontoValid = $this->getPonto($id_ponto);
+
+        $rotaPontoInfo = null;
+
+        if ($rota_ponto_Valid && $rotaValid && $pontoValid){
+
+            $rota   = $this->em->getReference(Rota::class, $id_rota);
+            $ponto = $this->em->getReference(Ponto::class, $id_ponto);
+            $rota_ponto = $this->em->getReference(RotaPonto::class, $id);
+
+
+            $horario = new \DateTime($dadosEmJson->horario);
+            $rota_ponto->setRota($rota);
+            $rota_ponto->setPonto($ponto);
+            $rota_ponto->setHorario($horario);
+        } else {
+            return new \Exception("O vinculo ou os dados não conferem", Response::HTTP_NOT_FOUND);
+        }
+
+        $formRotaStorage = new FormRotaPontoStorage($this->em);
+        $rota_ponto_regra = new RegraAtualizarRotaPonto();
+        $rota_ponto_regra->setRotaPontoStorage($formRotaStorage);
+        $rotaPontoInfo = $rota_ponto_regra->atualizar($rota_ponto);
+
+        return $rotaPontoInfo;
+    }
+
 
     public function getOnibus($id)
     {
