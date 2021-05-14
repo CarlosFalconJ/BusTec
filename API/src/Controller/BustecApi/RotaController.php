@@ -7,7 +7,7 @@ namespace App\Controller\BustecApi;
 use App\Helper\ExtratorDadosDoRequest;
 use App\Helper\ResponseHelper;
 use App\Service\Rota\FormRotaService;
-use App\Service\RotaOnibus\FormRotaOnibudService;
+use App\Service\RotaOnibus\FormRotaOnibusService;
 use App\Service\RotaPonto\FormRotaPontoService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,7 +75,7 @@ class RotaController
 
     public function juncaoRotaOnibus(int $id_onibus, int $id_rota)
     {
-        $formService = new FormRotaOnibudService($this->em, $this->dadosDoRequest);
+        $formService = new FormRotaOnibusService($this->em, $this->dadosDoRequest);
         $rota_onibus = $formService->addRotaOnibusATabela($id_rota, $id_onibus);
 
         $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
@@ -104,7 +104,7 @@ class RotaController
 
     public function excluiJuncaoRotaOnibus(int $id)
     {
-        $formRotaOnibusService = new FormRotaOnibudService($this->em, $this->dadosDoRequest);
+        $formRotaOnibusService = new FormRotaOnibusService($this->em, $this->dadosDoRequest);
         $rota_onibus = $formRotaOnibusService->excluirRotaOnibus($id);
 
         $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
