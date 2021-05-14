@@ -91,4 +91,14 @@ class RotaController
         $response = new ResponseHelper(true, $rota_ponto, Response::HTTP_OK );
         return $response->getResponse();
     }
+
+    public function excluiJuncaoRotaPonto(int $id)
+    {
+        $formRotaPontoService = new FormRotaPontoService($this->em, $this->dadosDoRequest);
+        $rota_ponto = $formRotaPontoService->excluirRotaPonto($id);
+
+        $response = new ResponseHelper(true, $rota_ponto, Response::HTTP_OK );
+        return $response->getResponse();
+
+    }
 }
