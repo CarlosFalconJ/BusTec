@@ -61,6 +61,24 @@ class FormRotaOnibudService
         return $rota_onibus;
     }
 
+    public function excluirRotaOnibus($id)
+    {
+        $rota_onibus = $this->getRotaOnibus($id);
+        $rota_onibus_Existe = !is_null($rota_onibus);
+        $rota_onibus_info = null;
+
+
+        if (!$rota_onibus_Existe){
+            return new \Exception("Esse vínculo não existe", Response::HTTP_NOT_FOUND);
+        } else {
+
+            $formRotaOnibusStorage = new FormRotaOnibusStorage($this->em);
+            $rota_onibus_storage = new RegraApagarRotaOnibus($formRotaOnibusStorage);
+            $rota_onibus_info = $rota_onibus_storage->apagar($rota_onibus);
+        }
+        return $rota_onibus_info;
+    }
+
     public function getOnibus($id)
     {
         $id = isset($id) ? $id : 0;
@@ -79,6 +97,16 @@ class FormRotaOnibudService
         $rota = $rotaRepository->find($id);
 
         return $rota;
+    }
+
+    public function getRotaOnibus($id)
+    {
+        $id = isset($id) ? $id : 0;
+
+        $rotaOnibusRepository = $this->em->getRepository(RotaOnibus::class);
+        $rota_onibus = $rotaOnibusRepository->find($id);
+
+        return $rota_onibus;
     }
 
 
