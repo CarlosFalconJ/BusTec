@@ -101,4 +101,14 @@ class RotaController
         return $response->getResponse();
 
     }
+
+    public function excluiJuncaoRotaOnibus(int $id)
+    {
+        $formRotaOnibusService = new FormRotaOnibudService($this->em, $this->dadosDoRequest);
+        $rota_onibus = $formRotaOnibusService->excluirRotaOnibus($id);
+
+        $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
+        return $response->getResponse();
+
+    }
 }
