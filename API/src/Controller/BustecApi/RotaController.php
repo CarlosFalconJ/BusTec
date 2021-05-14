@@ -9,6 +9,7 @@ use App\Helper\ResponseHelper;
 use App\Service\Rota\FormRotaService;
 use App\Service\RotaOnibus\FormRotaOnibusService;
 use App\Service\RotaPonto\FormRotaPontoService;
+use App\Service\RotaPonto\RotaPontoStorage\FormRotaPontoStorage;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -110,5 +111,16 @@ class RotaController
         $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
         return $response->getResponse();
 
+    }
+
+    public function updateRotaPonto($id, Request $request, int $id_rota, int $id_ponto)
+    {
+        $dadosEmJson = json_decode($request->getContent());
+
+        $formRotaPontoService = new FormRotaPontoService($this->em, $this->dadosDoRequest);
+        $rota_ponto = $formRotaPontoService->atualizarRotaPonto($dadosEmJson, $id, $id_rota,$id_ponto);
+
+        $response = new ResponseHelper(true, $rota_ponto, Response::HTTP_OK );
+        return $response->getResponse();
     }
 }
