@@ -62,6 +62,25 @@ class FormRotaPontoService
         return $rota_ponto;
     }
 
+    public function excluirRotaPonto($id)
+    {
+        $rota_ponto = $this->getRotaPonto($id);
+        $rota_ponto_Existe = !is_null($rota_ponto);
+        $rota_ponto_info = null;
+
+
+        if (!$rota_ponto_Existe){
+            return new \Exception("Esse vínculo não existe", Response::HTTP_NOT_FOUND);
+        } else {
+
+            $formRotaPontoStorage = new FormRotaPontoStorage($this->em);
+            $rota_ponto_storage = new RegraApagarRotaPonto($formRotaPontoStorage);
+            $rota_ponto_info = $rota_ponto_storage->apagar($rota_ponto);
+        }
+        return $rota_ponto_info;
+    }
+
+
     public function getOnibus($id)
     {
         $id = isset($id) ? $id : 0;
@@ -90,6 +109,16 @@ class FormRotaPontoService
         $ponto = $pontoRepository->find($id);
 
         return $ponto;
+    }
+
+    public function getRotaPonto($id)
+    {
+        $id = isset($id) ? $id : 0;
+
+        $rotaPontoRepository = $this->em->getRepository(RotaPonto::class);
+        $rota_ponto = $rotaPontoRepository->find($id);
+
+        return $rota_ponto;
     }
 
 }
