@@ -211,6 +211,7 @@ atualizar_rota_onibus:
    path: /vinculo/{id}/rota/{id_rota}/onibus/{id_onibus}
    controller: App\Controller\BustecApi\RotaController::updateRotaOnibus
    methods: PUT
+
    ## WEB ##
 
 vincular_rota_onibus_html:
