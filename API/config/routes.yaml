@@ -219,6 +219,12 @@ juntar_rota_ponto:
    controller: App\Controller\BustecApi\RotaController::juncaoRotaPonto
    methods: POST
 
+deletar_rota_ponto:
+   path: /rota/ponto/{id}
+   controller: App\Controller\BustecApi\RotaController::excluiJuncaoRotaPonto
+   methods: DELETE
+
+
    ## WEB ##
 
 vincular_rota_ponto_html:
