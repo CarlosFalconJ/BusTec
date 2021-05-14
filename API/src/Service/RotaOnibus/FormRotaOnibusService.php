@@ -15,7 +15,7 @@ use App\Service\RotaOnibus\RotaOnibusStorage\FormRotaOnibusStorage;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Response;
 
-class FormRotaOnibudService
+class FormRotaOnibusService
 {
     private $em;
 
