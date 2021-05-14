@@ -207,14 +207,16 @@ deletar_rota_onibus:
    controller: App\Controller\BustecApi\RotaController::excluiJuncaoRotaOnibus
    methods: DELETE
 
-
+atualizar_rota_onibus:
+   path: /vinculo/{id}/rota/{id_rota}/onibus/{id_onibus}
+   controller: App\Controller\BustecApi\RotaController::updateRotaOnibus
+   methods: PUT
    ## WEB ##
 
 vincular_rota_onibus_html:
    path: /rota/vicular/rota-onibus
    controller: App\Controller\BustecAdm\RotasRender::vinculaRotaOnibus
    methods: GET
-
 
 ## Routes Rota Ponto ##
 
@@ -230,6 +232,10 @@ deletar_rota_ponto:
    controller: App\Controller\BustecApi\RotaController::excluiJuncaoRotaPonto
    methods: DELETE
 
+atualizar_rota_ponto:
+   path: /vinculo/{id}/rota/{id_rota}/ponto/{id_ponto}
+   controller: App\Controller\BustecApi\RotaController::updateRotaPonto
+   methods: PUT
 
    ## WEB ##
 
