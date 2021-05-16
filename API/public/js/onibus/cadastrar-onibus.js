@@ -5,8 +5,8 @@ $("#salvar-onibus-cadastro").click(function (e) {
     var placa = $("#numero_placa_onibus-cadastro").val();
 
     var json = serializadorOnibus(motorista_responsavel, placa)
-
-    $.post("http://localhost:8080/onibus", json, function () {
+    
+    $.post("/onibus", json, function () {
         menssagemDeSucesso('Ônibus cadastrado com sucesso!!', '/onibus/listar-todos');
     }).fail(function (){
         menssagemDeErro('Ônibus não cadastrado!!, verifique os dados e tente novamente');

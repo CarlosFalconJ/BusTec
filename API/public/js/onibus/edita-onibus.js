@@ -15,7 +15,7 @@ $("#salvar-onibus-atualizar").click(function (e) {
 function realizaRequestAtualizaOnibus(idOnibus, json) {
     $.ajax({
         type: 'PUT',
-        url: 'http://localhost:8080/onibus/' + idOnibus,
+        url: 'onibus/' + idOnibus,
         contentType: 'application/json',
         data: json
     }).done(function () {

@@ -23,7 +23,7 @@ $("#salvar-aluno-atualizar").click(function (e) {
 function realizaRequestAtualizaAluno(idAluno, idOnibus, json) {
     $.ajax({
         type: 'PUT',
-        url: 'http://localhost:8080/onibus/'+ idOnibus +'/aluno/' +idAluno,
+        url: '/onibus/'+ idOnibus +'/aluno/' +idAluno,
         contentType: 'application/json',
         data: json
     }).done(function () {
