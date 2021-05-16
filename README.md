@@ -16,4 +16,4 @@ ___
 
  - Para iniciar o projeto digite:
     - cd API
-    - php -S 127.0.0.1 -t public
+    - php -S 0.0.0.0:8080 -t public
