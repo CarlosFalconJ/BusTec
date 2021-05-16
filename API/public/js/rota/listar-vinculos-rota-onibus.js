@@ -2,6 +2,21 @@ $(".editar_vinculo_rota_onibus").click(function (e) {
     e.preventDefault();
 
     var idVinculo = $(this).data("id-rota-onibus");
+
+    $.ajax({
+        type: 'GET',
+        url: '/busca/rota/onibus/vinculo/' + idVinculo,
+        contentType: 'application/json',
+    }).done(function (data) {
+        var conteudoResposta = data.conteudoResposta;
+
+        localStorage.setItem('atualizar_vinculo_rota-o', conteudoResposta.rota.id);
+        localStorage.setItem('atualizar_vinculo_onibus', conteudoResposta.onibus.id);
+
+    }).fail(function () {
+        menssagemDeErro('O vínculo não existe!!');
+    });
+
     window.location.href="/vinculo/" + idVinculo + "/rota/onibus";
 });
 

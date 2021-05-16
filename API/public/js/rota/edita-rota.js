@@ -1,3 +1,9 @@
+$("#atualizar-rota").ready(function () {
+    $("#nome_rota-atualizar").val(localStorage.getItem('atualizar_nome_rota'));
+    $("#cidade_rota-atualizar").val(localStorage.getItem('atualiza_cidade_rota'));
+
+})
+
 $("#salvar-rota-atualizar").click(function (e) {
     e.preventDefault();
 

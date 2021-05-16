@@ -124,12 +124,6 @@ buscar_uma_rota:
    controller: App\Controller\BustecApi\RotaController::buscarRota
    methods: GET
 
-
-vinculos_rota_html:
-   path: /rota/vinculos/{id_rota}
-   controller: App\Controller\BustecAdm\RotasRender::vinculosOnibus
-   methods: GET
-
    ## WEB ##
 
 adicionar_rota_html:
@@ -145,6 +139,11 @@ atualizar_rota_html:
 listar_rota_html:
    path: /rota/listar-todos
    controller: App\Controller\BustecAdm\RotasRender::listarRotas
+   methods: GET
+
+vinculos_rota_html:
+   path: /rota/vinculos/{id_rota}
+   controller: App\Controller\BustecAdm\RotasRender::vinculosOnibusPontos
    methods: GET
 
 ## Routes de Pontos ##
@@ -171,7 +170,7 @@ deletar_ponto:
    controller: App\Controller\BustecApi\PontoController::deletePonto
    methods: DELETE
 
-buscar_um_pontp:
+buscar_um_ponto:
    path: /busca/ponto/{id}
    controller: App\Controller\BustecApi\PontoController::buscarPonto
    methods: GET
@@ -212,6 +211,10 @@ atualizar_rota_onibus:
    controller: App\Controller\BustecApi\RotaController::updateRotaOnibus
    methods: PUT
 
+buscar_um_vinculo_rota_onibus:
+   path: /busca/rota/onibus/vinculo/{id}
+   controller: App\Controller\BustecApi\RotaController::buscaUmVinculoRotaOnibus
+   methods: GET
    ## WEB ##
 
 vincular_rota_onibus_html:
@@ -242,6 +245,11 @@ atualizar_rota_ponto:
    path: /vinculo/{id}/rota/{id_rota}/ponto/{id_ponto}
    controller: App\Controller\BustecApi\RotaController::updateRotaPonto
    methods: PUT
+
+buscar_um_vinculo_rota_ponto:
+   path: /busca/rota/ponto/vinculo/{id}
+   controller: App\Controller\BustecApi\RotaController::buscaUmVinculoRotaPonto
+   methods: GET
 
    ## WEB ##
 

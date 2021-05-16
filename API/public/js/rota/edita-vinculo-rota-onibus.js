@@ -1,3 +1,8 @@
+$("#atualizar-vinculos-rota-onibus").ready(function () {
+    $(".atualizar_vinculo-rota-o").val(localStorage.getItem(  'atualizar_vinculo_rota-o'));
+    $(".atualizar_vinculo-onibus").val(localStorage.getItem('atualizar_vinculo_onibus'));
+})
+
 $("#atualizar_vinculo-rota-onibus").click(function (e) {
     e.preventDefault();
 

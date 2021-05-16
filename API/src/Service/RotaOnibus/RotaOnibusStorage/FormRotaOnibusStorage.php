@@ -36,4 +36,12 @@ class FormRotaOnibusStorage
 
         return $rota_onibus;
     }
+
+    public function getVinculoPorID($id)
+    {
+        $rotaOnibusRepository = $this->em->getRepository(RotaOnibus::class);
+        $vinculo = $rotaOnibusRepository->find($id);
+
+        return is_null($vinculo) ? [] : $vinculo->jsonSerialize();
+    }
 }

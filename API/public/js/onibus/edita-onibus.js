@@ -1,3 +1,8 @@
+$("#atualizar-onibus").ready(function () {
+    $("#nome_motorista_onibus-atualizar").val(localStorage.getItem('nome_motorista_onibus_atualizar'));
+    $("#numero_placa_onibus-atualizar").val(localStorage.getItem('placa_onibus_atualizar'));
+})
+
 $("#salvar-onibus-atualizar").click(function (e) {
     e.preventDefault();
 

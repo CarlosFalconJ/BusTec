@@ -1,3 +1,9 @@
+$("#atualizar-vinculos-rota-ponto").ready(function () {
+
+    $(".atualiza_vinculo-rota").val(localStorage.getItem(  'atualizar_vinculo_rota'));
+    $(".atualizar_vinculo-ponto").val(localStorage.getItem('atualizar_vinculo_ponto'));
+})
+
 $("#atualizar_vinculo-rota-ponto").click(function (e) {
     e.preventDefault();
 
@@ -5,11 +11,10 @@ $("#atualizar_vinculo-rota-ponto").click(function (e) {
     id = id.split('/');
     let idVinculo = id[4];
 
-    console.log(idVinculo);
     var idRota = $(".atualiza_vinculo-rota").val();
     var idPonto = $(".atualizar_vinculo-ponto").val();
     var data = $("#datetime-atualizar_rota-ponto").val();
-
+        
     var json =  serializadorDate(data);
 
     realizaRequestAtualizaRotaPonto(idVinculo, idRota, idPonto, json);

@@ -1,3 +1,11 @@
+$("#atualizar-ponto").ready(function () {
+    $("#nome_ponto-atualizar").val(localStorage.getItem('nome_ponto-atualizar'));
+    $("#bairro_ponto-atualizar").val(localStorage.getItem('bairro_ponto-atualizar'));
+    $("#rua_ponto-atualizar").val(localStorage.getItem   ('rua_ponto-atualizar'));
+    $("#ponto_ref_ponto-atualizar").val(localStorage.getItem('ponto_referencia-atualizar'));
+})
+
+
 $("#salvar-ponto-atualizar").click(function (e) {
     e.preventDefault()
 
