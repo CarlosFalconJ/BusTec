@@ -17,7 +17,7 @@ $("#salvar-ponto-atualizar").click(function (e) {
 function realizaRequestAtualizaPonto(idPonto, json) {
     $.ajax({
         type: 'PUT',
-        url: '/ponto/' + idPonto,
+        url: '/ponto' + idPonto,
         contentType: 'application/json',
         data: json
     }).done(function () {

@@ -14,7 +14,7 @@ $(".remove_ponto").click(function (e){
 
 var funcDeletePonto = function requestDeletePonto(idPonto) {
     $.ajax({
-        url: '/ponto/' +idPonto,
+        url: '/ponto' +idPonto,
         type: 'DELETE',
         success: function(result) {
             menssagemDeSucesso('Ponto removido com sucesso!!', '/ponto/listar-todos')
