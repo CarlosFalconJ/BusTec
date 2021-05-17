@@ -16,36 +16,37 @@
         </section>
     </div>
 
-    <table class="table table-striped table-dark">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Bairro</th>
-            <th scope="col">Rua</th>
-            <th scope="col">Ponto de referência</th>
-            <th scope="col">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for ponto in pontos %}
+    <div class="table-responsive">
+        <table class="table table-striped table-dark">
+            <thead>
             <tr>
-                <td>{{ ponto.id }}</td>
-                <td>{{ ponto.nome }}</td>
-                <td>{{ ponto.bairro }}</td>
-                <td>{{ ponto.rua }}</td>
-                <td>{{ ponto.ponto_referencia }}</td>
-                <td>
-                    <i data-id-ponto="{{ ponto.id }}" class="btn btn-sm btn-primary editar_ponto">
-                        <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
-                    </i>
-                    <i data-id-ponto="{{ ponto.id }}" class="btn btn-sm btn-danger remove_ponto">
-                        <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
-                    </i>
-                </td>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Ponto de referência</th>
+                <th scope="col">Ações</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+            </thead>
+            <tbody>
+            {% for ponto in pontos %}
+                <tr>
+                    <td>{{ ponto.id }}</td>
+                    <td>{{ ponto.nome }}</td>
+                    <td>{{ ponto.bairro }}</td>
+                    <td>{{ ponto.rua }}</td>
+                    <td>{{ ponto.ponto_referencia }}</td>
+                    <td>
+                        <i data-id-ponto="{{ ponto.id }}" class="btn btn-sm btn-primary editar_ponto">
+                            <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
+                        </i>
+                        <i data-id-ponto="{{ ponto.id }}" class="btn btn-sm btn-danger remove_ponto">
+                            <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
+                        </i>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

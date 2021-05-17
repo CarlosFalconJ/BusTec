@@ -16,33 +16,34 @@
         </section>
     </div>
 
-    <table class="table table-striped table-dark">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Motorista responsável</th>
-            <th scope="col">Número da placa</th>
-            <th scope="col">Ações</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        {% for onibus in allOnibus %}
+    <div class="table-responsives">
+        <table class="table table-striped table-dark">
+            <thead>
             <tr>
-                <td>{{ onibus.id }}</td>
-                <td>{{ onibus.motorista_responsavel }}</td>
-                <td>{{ onibus.placa }}</td>
-                <td>
-                    <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-primary editar_onibus">
-                        <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
-                    </i>
-                    <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-danger remove_onibus">
-                        <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
-                    </i>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                <th scope="col">ID</th>
+                <th scope="col">Motorista responsável</th>
+                <th scope="col">Número da placa</th>
+                <th scope="col">Ações</th>
 
+            </tr>
+            </thead>
+            <tbody>
+            {% for onibus in allOnibus %}
+                <tr>
+                    <td>{{ onibus.id }}</td>
+                    <td>{{ onibus.motorista_responsavel }}</td>
+                    <td>{{ onibus.placa }}</td>
+                    <td>
+                        <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-primary editar_onibus">
+                            <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
+                        </i>
+                        <i data-id-onibus="{{ onibus.id }}" class="btn btn-sm btn-danger remove_onibus">
+                            <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
+                        </i>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
