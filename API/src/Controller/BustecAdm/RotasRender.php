@@ -66,8 +66,7 @@ class RotasRender extends  AbstractController
 
         return $this->render('Rota\visualizarVinculos.html.twig',["rotasOnibus" => $rotasOnibus, "rotasPontos" => $rotasPontos]);
     }
-
-
+    
     public function atualizarRotaPonto()
     {
         $rotaService = new RotaService($this->em, $this->rotaRepository);
@@ -75,5 +74,14 @@ class RotasRender extends  AbstractController
         $pontos = $rotaService->buscarTodoPontos();
 
         return $this->render('Rota\atualizar-rota-ponto.html.twig',["rotas" => $rotas, "pontos" => $pontos]);
+    }
+
+    public function atualizarRotaOnibus()
+    {
+        $rotaService = new RotaService($this->em, $this->rotaRepository);
+        $rotas = $rotaService->buscarTodasRotas();
+        $onibus = $rotaService->buscarTodosOnibus();
+
+        return $this->render('Rota\atualiza-rota-onibus.html.twig',["rotas" => $rotas, "allOnibus" => $onibus]);
     }
 }
