@@ -60,6 +60,7 @@ class RotaService
         $rotasPontoResult = [];
         foreach ($rotasPonto as $rotaPonto){
             array_push($rotasPontoResult, [
+                'id' => $rotaPonto['id'],
                 'nome' => $rotaPonto['nome'],
                 'nome_ponto' => $rotaPonto['nome_ponto'],
                 'horario' => $rotaPonto['horario']->format('d-m-Y H:i:s'),
