@@ -245,6 +245,11 @@ vincular_rota_ponto_html:
    controller: App\Controller\BustecAdm\RotasRender::vinculaRotaPonto
    methods: GET
 
+atualizar_rota_ponto_html:
+   path: /vinculo/{id}/rota/ponto
+   controller: App\Controller\BustecAdm\RotasRender::atualizarRotaPonto
+   methods: GET
+
 ## Routes Login ##
 
    ## API ##
