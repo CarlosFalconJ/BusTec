@@ -31,6 +31,6 @@ function realizaRequestAtualizaRotaPonto(idVinculo, idRota, idPonto, json) {
 $("#limpar_vinculo-rota-ponto_atualizar").click(function (e) {
     e.preventDefault();
 
-    $(".escolha_vinculo-rota-o").val("Selecione a rota");
-    $(".escolha_vinculo-ponto").val("Selecione o ponto");
+    $(".atualiza_vinculo-rota").val("Selecione a rota");
+    $(".atualizar_vinculo-ponto").val("Selecione o ponto");
 });
