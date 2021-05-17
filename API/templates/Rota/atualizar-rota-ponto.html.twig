@@ -1,0 +1,63 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block corpo %}
+
+
+    <div class="box-header with-border">
+        <section class="nav_top">
+            <div class="h1_geral">
+                <h1> Atualizar vínculo de Rotas - Ponto</h1>
+            </div>
+        </section>
+    </div>
+
+    <section class="section_top">
+        <div class="h2_geral">
+            <h2>Dados de vínculo</h2>
+        </div>
+    </section>
+
+
+    <form class="cover-conteiner-form">
+        <div class="form-row">
+
+            <div class="form-group col-md-4 select-options">
+                <label for="escolha_vinculo-rota">Rota: </label>
+                <select class="custom-select atualiza_vinculo-rota">
+                    <option selected>Selecione a rota</option>
+
+                    {% for rota in rotas %}
+
+                        <option value="{{ rota.id }}">{{ rota.nome}}</option>
+
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group col-md-4 select-options">
+                <label for="escolha_vinculo-ponto">Ponto: </label>
+                <select class="custom-select atualizar_vinculo-ponto">
+                    <option selected>Selecione o ponto</option>
+
+                    {% for ponto in pontos %}
+
+                        <option value="{{ ponto.id }}">{{ ponto.nome }}</option>
+
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="birthdaytime">Data:</label>
+                <div>
+                    <input class="form-control" type="datetime-local" value="" id="datetime-atualizar_rota-ponto">
+                </div>
+            </div>
+        </div>
+        <button id="atualizar_vinculo-rota-ponto" type="submit" class="btn btn-success">Salvar</button>
+        <button id="limpar_vinculo-rota-ponto_atualizar" type="submit" class="btn btn-danger">Limpar</button>
+    </form>
+
+{% endblock %}
