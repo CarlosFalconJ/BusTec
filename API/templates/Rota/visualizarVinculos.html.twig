@@ -19,6 +19,7 @@
                             <tr>
                                 <th scope="col">Nome da rota</th>
                                 <th scope="col">Placa do ônibus</th>
+                                <th scope="col">Opções</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -26,6 +27,14 @@
                                 <tr>
                                     <td>{{ rotaOnibus.nome }}</td>
                                     <td>{{ rotaOnibus.placa }}</td>
+                                    <td>
+                                        <i data-id-rota-onibus="{{ rotaOnibus.id }}" class="btn btn-sm btn-primary editar_ponto">
+                                            <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
+                                        </i>
+                                        <i data-id-rota-onibus="{{ rotaOnibus.id }}" class="btn btn-sm btn-danger remove_ponto">
+                                            <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
+                                        </i>
+                                    </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -40,6 +49,7 @@
                                 <th scope="col">Nome da rota</th>
                                 <th scope="col">Nome do ponto</th>
                                 <th scope="col">Horário</th>
+                                <th scope="col">Opções</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -48,6 +58,14 @@
                                     <td>{{ rotaPonto.nome }}</td>
                                     <td>{{ rotaPonto.nome_ponto }}</td>
                                     <td>{{ rotaPonto.horario }}</td>
+                                    <td>
+                                        <i data-id-rota-ponto="{{ rotaPonto.id }}" class="btn btn-sm btn-primary editar_ponto">
+                                            <ion-icon src="/Imagens/pencil-outline.svg" class="icon-edit"></ion-icon>
+                                        </i>
+                                        <i data-id-rota-ponto="{{ rotaPonto.id }}" class="btn btn-sm btn-danger remove_ponto">
+                                            <ion-icon src="/Imagens/trash-outline.svg" class="icon-delete"></ion-icon>
+                                        </i>
+                                    </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
