@@ -219,6 +219,11 @@ vincular_rota_onibus_html:
    controller: App\Controller\BustecAdm\RotasRender::vinculaRotaOnibus
    methods: GET
 
+atualizar_rota_onibus_html:
+   path: /vinculo/{id}/rota/onibus
+   controller: App\Controller\BustecAdm\RotasRender::atualizarRotaOnibus
+   methods: GET
+
 ## Routes Rota Ponto ##
 
  ## API ##
