@@ -176,7 +176,7 @@ body {
 }
 
 .wrap {
-    margin-left: 5%;
+    margin-left: -2%;
     position:static;
     display: inline;
     float: left;
@@ -190,7 +190,6 @@ body {
 }
 
 .vinculo {
-    margin-left: 110% !important;
     width: 100% !important;
 }
 
@@ -306,4 +305,7 @@ body {
 }
 .label-vinculo-onibus{
     margin-left: 26.5%;
+}
+.h2_vinculo{
+    margin-left: 7%;
 }
