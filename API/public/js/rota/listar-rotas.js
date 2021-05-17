@@ -27,7 +27,7 @@ var funcDeleteRota = function requestDeleteRota(idRota) {
             menssagemDeSucesso('Rota removida com sucesso!!', '/rota/listar-todos');
         },
         error: function (){
-            menssagemDeErro('Rota um problema!!, ponto não removida');
+            menssagemDeErro('Ouve um problema!!, rota não removida');
         }
     });
 }
