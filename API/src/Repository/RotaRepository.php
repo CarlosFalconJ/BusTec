@@ -120,7 +120,7 @@ class RotaRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
 
-        $qb->select('r.nome, p.nome as nome_ponto, rp.horario as horario')
+        $qb->select('rp.id, r.nome, p.nome as nome_ponto, rp.horario as horario')
             ->from(Rota::class, 'r')
             ->innerJoin(RotaPonto::class, 'rp','with', 'r.id = rp.rota')
             ->innerJoin(Ponto::class, 'p', 'with','rp.ponto = p.id')
