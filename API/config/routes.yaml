@@ -264,6 +264,11 @@ login_api:
    controller: App\Controller\BustecApi\LoginController::index
    methods: POST
 
+criar_login_api:
+   path: /cadastrar/login
+   controller: App\Controller\BustecApi\UserController::cadastrarUsuario
+   methods: POST
+
    ## WEB ##
 
 login_web:
