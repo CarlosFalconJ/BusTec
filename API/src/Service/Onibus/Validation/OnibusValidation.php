@@ -16,6 +16,6 @@ class OnibusValidation
             throw new \Exception("O campo (mototista_responsavel) é inválido", Response::HTTP_BAD_REQUEST);
         }
 
-        return true;
+        return $dadosEmJson;
     }
 }

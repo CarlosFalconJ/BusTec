@@ -17,6 +17,6 @@ class RotaValidation
             throw new \Exception("O campo (cidade) é inválido",Response::HTTP_BAD_REQUEST);
         }
 
-        return true;
+        return $dadosEmJson;
     }
 }

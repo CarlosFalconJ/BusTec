@@ -20,6 +20,6 @@ class PontoValidation
             throw new \Exception("O campo (ponto_referencia) é inválido",Response::HTTP_BAD_REQUEST);
         }
 
-        return true;
+        return $dadosEmJson;
     }
 }
