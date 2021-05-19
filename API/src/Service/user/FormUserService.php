@@ -25,7 +25,7 @@ class FormUserService
         $this->extratorRequest = $extratorRequest;
     }
 
-    public function cadatrar($dadosEmJson)
+    public function cadastrar($dadosEmJson)
     {
 
         if (is_null($dadosEmJson->usuario) || is_null($dadosEmJson->senha)) {
