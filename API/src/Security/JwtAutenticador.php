@@ -75,6 +75,9 @@ class JwtAutenticador extends AbstractGuardAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
+        if ($user->getRoles() == "ROLE_USER_MOBILE"){
+            return null;
+        }
         return is_object($credentials) && property_exists($credentials, 'username');
     }
 
