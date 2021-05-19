@@ -5,7 +5,7 @@ $(".editar_alunos").click(function (e) {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/busca/aluno/' +idAluno,
+        url: '/busca/aluno/' +idAluno,
         contentType: 'application/json',
     }).done(function (data) {
         var conteudoResposta = data.conteudoResposta;
