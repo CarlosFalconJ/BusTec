@@ -2,6 +2,21 @@ $(".editar_onibus").click(function (e) {
     e.preventDefault();
 
     var idOnibus = $(this).data("id-onibus");
+
+    $.ajax({
+        type: 'GET',
+        url: '/busca/onibus/' + idOnibus,
+        contentType: 'application/json',
+    }).done(function (data) {
+        var conteudoResposta = data.conteudoResposta;
+
+        localStorage.setItem('nome_motorista_onibus_atualizar', conteudoResposta.motorista_responsavel);
+        localStorage.setItem('placa_onibus_atualizar', conteudoResposta.placa);
+
+    }).fail(function () {
+        menssagemDeErro('Aluno não encotrado!!');
+    });
+
     window.location.href="/onibus/atualizar/" + idOnibus
 });
 
