@@ -1,4 +1,4 @@
-﻿$("#atualzia-aluno").ready(function (){
+﻿$("#atualzar-aluno").ready(function (){
 
     $("#nome_aluno-atualizar").val(localStorage.getItem('atualizar_nome_aluno'));
     $("#numero_aluno-atualizar").val(localStorage.getItem('atualiza_numero_aluno'));
