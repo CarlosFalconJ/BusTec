@@ -27,7 +27,7 @@ class UserController
         $dadosEmJson = json_decode($request->getContent());
 
         $formUser = new FormUserService($this->em, $this->dadosDoRequest);
-        $user = $formUser->cadatrar($dadosEmJson);
+        $user = $formUser->cadastrar($dadosEmJson);
 
         $response = new ResponseHelper(true, $user, Response::HTTP_CREATED);
         return $response->getResponse();
