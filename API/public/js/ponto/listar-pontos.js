@@ -17,7 +17,7 @@ $(".editar_ponto").click(function (e) {
 
 
     }).fail(function () {
-        menssagemDeErro('Aluno não encotrado!!');
+        menssagemDeErro('Ponto não encotrado!!');
     });
 
     window.location.href="/ponto/atualizar/" + idPonto

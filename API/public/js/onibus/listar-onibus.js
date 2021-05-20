@@ -14,7 +14,7 @@ $(".editar_onibus").click(function (e) {
         localStorage.setItem('placa_onibus_atualizar', conteudoResposta.placa);
 
     }).fail(function () {
-        menssagemDeErro('Aluno não encotrado!!');
+        menssagemDeErro('Onibus não encotrado!!');
     });
 
     window.location.href="/onibus/atualizar/" + idOnibus

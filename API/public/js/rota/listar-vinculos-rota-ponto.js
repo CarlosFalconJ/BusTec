@@ -14,7 +14,7 @@ $(".editar_vinculo_rota_ponto").click(function (e) {
         localStorage.setItem('atualizar_vinculo_ponto', conteudoResposta.ponto.id);
 
     }).fail(function () {
-        menssagemDeErro('Aluno não encotrado!!');
+        menssagemDeErro('O vínculo não existe!!');
     });
 
     window.location.href="/vinculo/" + idVinculo + "/rota/ponto";

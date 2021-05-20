@@ -14,7 +14,7 @@ $(".editar_rota").click(function (e) {
         localStorage.setItem('atualiza_cidade_rota', conteudoResposta.cidade);
 
     }).fail(function () {
-        menssagemDeErro('Aluno não encotrado!!');
+        menssagemDeErro('Rota não encotrada!!');
     });
 
     window.location.href="/rota/atualizar/" + idRota;
