@@ -171,7 +171,7 @@ deletar_ponto:
    controller: App\Controller\BustecApi\PontoController::deletePonto
    methods: DELETE
 
-buscar_um_pontp:
+buscar_um_ponto:
    path: /busca/ponto/{id}
    controller: App\Controller\BustecApi\PontoController::buscarPonto
    methods: GET
@@ -242,6 +242,11 @@ atualizar_rota_ponto:
    path: /vinculo/{id}/rota/{id_rota}/ponto/{id_ponto}
    controller: App\Controller\BustecApi\RotaController::updateRotaPonto
    methods: PUT
+
+buscar_um_vinculo_rota_ponto:
+   path: /busca/rota/ponto/vinculo/{id}
+   controller: App\Controller\BustecApi\RotaController::buscaUmVinculoRotaPonto
+   methods: GET
 
    ## WEB ##
 
