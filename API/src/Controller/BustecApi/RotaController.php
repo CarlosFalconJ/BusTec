@@ -134,4 +134,14 @@ class RotaController
         $response = new ResponseHelper(true, $rota_onibus, Response::HTTP_OK );
         return $response->getResponse();
     }
+
+    public function buscaUmVinculoRotaPonto(int $id)
+    {
+        $formRotaPontoService = new FormRotaPontoService($this->em, $this->dadosDoRequest);
+        $vinculo = $formRotaPontoService->buscaUmVinculo($id);
+
+        $response = new ResponseHelper(true, $vinculo, Response::HTTP_OK );
+        return $response->getResponse();
+    }
+
 }
