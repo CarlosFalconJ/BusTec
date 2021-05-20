@@ -40,7 +40,6 @@ class FormRotaOnibusService
 
 
         return$rotaOnibusInfo;
-
     }
 
     public function addRotaOnibus($id_rota, $id_onibus)
@@ -105,6 +104,14 @@ class FormRotaOnibusService
         $rotaPontoInfo = $rota_onibus_regra->atualizar($rota_onibus);
 
         return $rotaPontoInfo;
+    }
+
+    public function buscarUmVinculoRotaOnibus($id)
+    {
+        $formRotaOnibusStorage = new FormRotaOnibusStorage($this->em);
+        $vinculo = $formRotaOnibusStorage->getVinculoPorID($id);
+
+        return $vinculo;
     }
 
     public function getOnibus($id)
