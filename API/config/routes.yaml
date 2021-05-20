@@ -124,12 +124,6 @@ buscar_uma_rota:
    controller: App\Controller\BustecApi\RotaController::buscarRota
    methods: GET
 
-
-vinculos_rota_html:
-   path: /rota/vinculos/{id_rota}
-   controller: App\Controller\BustecAdm\RotasRender::vinculosOnibus
-   methods: GET
-
    ## WEB ##
 
 adicionar_rota_html:
@@ -145,6 +139,11 @@ atualizar_rota_html:
 listar_rota_html:
    path: /rota/listar-todos
    controller: App\Controller\BustecAdm\RotasRender::listarRotas
+   methods: GET
+
+vinculos_rota_html:
+   path: /rota/vinculos/{id_rota}
+   controller: App\Controller\BustecAdm\RotasRender::vinculosOnibusPontos
    methods: GET
 
 ## Routes de Pontos ##
