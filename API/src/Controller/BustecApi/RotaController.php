@@ -126,8 +126,6 @@ class RotaController
 
     public function updateRotaOnibus($id, Request $request, int $id_rota, int $id_onibus)
     {
-        $dadosEmJson = json_decode($request->getContent());
-
         $formRotaOnibusService = new FormRotaOnibusService($this->em, $this->dadosDoRequest);
         $rota_onibus = $formRotaOnibusService->atualizarRotaOnibus($id, $id_rota, $id_onibus);
 
@@ -139,6 +137,15 @@ class RotaController
     {
         $formRotaPontoService = new FormRotaPontoService($this->em, $this->dadosDoRequest);
         $vinculo = $formRotaPontoService->buscaUmVinculo($id);
+
+        $response = new ResponseHelper(true, $vinculo, Response::HTTP_OK );
+        return $response->getResponse();
+    }
+
+    public function buscaUmVinculoRotaOnibus(int $id)
+    {
+        $formRotaOnibusService = new FormRotaOnibusService($this->em, $this->dadosDoRequest);
+        $vinculo = $formRotaOnibusService->buscarUmVinculoRotaOnibus($id);
 
         $response = new ResponseHelper(true, $vinculo, Response::HTTP_OK );
         return $response->getResponse();
