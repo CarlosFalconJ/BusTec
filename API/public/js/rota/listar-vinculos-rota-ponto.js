@@ -2,6 +2,21 @@ $(".editar_vinculo_rota_ponto").click(function (e) {
     e.preventDefault();
 
     var idVinculo = $(this).data("id-rota-ponto");
+
+    $.ajax({
+        type: 'GET',
+        url: '/busca/rota/ponto/vinculo/' + idVinculo,
+        contentType: 'application/json',
+    }).done(function (data) {
+        var conteudoResposta = data.conteudoResposta;
+
+        localStorage.setItem('atualizar_vinculo_rota', conteudoResposta.rota.id);
+        localStorage.setItem('atualizar_vinculo_ponto', conteudoResposta.ponto.id);
+
+    }).fail(function () {
+        menssagemDeErro('Aluno não encotrado!!');
+    });
+
     window.location.href="/vinculo/" + idVinculo + "/rota/ponto";
 });
 
