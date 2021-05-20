@@ -2,6 +2,21 @@ $(".editar_rota").click(function (e) {
     e.preventDefault();
 
     var idRota = $(this).data("id-rota");
+
+    $.ajax({
+        type: 'GET',
+        url: '/busca/rota/' +idRota,
+        contentType: 'application/json',
+    }).done(function (data) {
+        var conteudoResposta = data.conteudoResposta;
+
+        localStorage.setItem('atualizar_nome_rota', conteudoResposta.nome);
+        localStorage.setItem('atualiza_cidade_rota', conteudoResposta.cidade);
+
+    }).fail(function () {
+        menssagemDeErro('Aluno não encotrado!!');
+    });
+
     window.location.href="/rota/atualizar/" + idRota;
 });
 
