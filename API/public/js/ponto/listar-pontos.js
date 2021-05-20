@@ -2,6 +2,24 @@ $(".editar_ponto").click(function (e) {
     e.preventDefault();
 
     var idPonto = $(this).data("id-ponto");
+
+    $.ajax({
+        type: 'GET',
+        url: '/busca/ponto/' +idPonto,
+        contentType: 'application/json',
+    }).done(function (data) {
+        var conteudoResposta = data.conteudoResposta;
+
+        localStorage.setItem('nome_ponto-atualizar', conteudoResposta.nome);
+        localStorage.setItem('bairro_ponto-atualizar', conteudoResposta.bairro);
+        localStorage.setItem('rua_ponto-atualizar', conteudoResposta.rua);
+        localStorage.setItem('ponto_referencia-atualizar', conteudoResposta.ponto_referencia);
+
+
+    }).fail(function () {
+        menssagemDeErro('Aluno não encotrado!!');
+    });
+
     window.location.href="/ponto/atualizar/" + idPonto
 });
 
