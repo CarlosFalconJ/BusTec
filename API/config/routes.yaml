@@ -278,6 +278,8 @@ login_web:
 
 ## MOBILE ##
 
+## Routes Login ##
+
 criar_user_mobile_api:
    path: /mobile/cadastrar/login
    controller: App\Controller\BustecApi\UserMobileController::cadastrarUsuarioMobile
@@ -287,3 +289,10 @@ login_mobile_api:
    path: /mobile/login
    controller: App\Controller\BustecApi\LoginMobileController::index
    methods: POST
+
+## Routes Pontos ##
+
+buscar_um_ponto_mobile:
+   path: mobile/busca/ponto/{id}
+   controller: App\Controller\BustecApi\PontoMobileController::listarPontos
+   methods: GET
