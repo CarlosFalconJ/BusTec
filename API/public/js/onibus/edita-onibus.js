@@ -1,3 +1,8 @@
+$("#atualizar-onibus").ready(function () {
+    $("#nome_motorista_onibus-atualizar").val(localStorage.getItem('nome_motorista_onibus_atualizar'));
+    $("#numero_placa_onibus-atualizar").val(localStorage.getItem('placa_onibus_atualizar'));
+})
+
 $("#salvar-onibus-atualizar").click(function (e) {
     e.preventDefault();
 
@@ -15,7 +20,7 @@ $("#salvar-onibus-atualizar").click(function (e) {
 function realizaRequestAtualizaOnibus(idOnibus, json) {
     $.ajax({
         type: 'PUT',
-        url: 'http://localhost:8080/onibus/' + idOnibus,
+        url: 'onibus/' + idOnibus,
         contentType: 'application/json',
         data: json
     }).done(function () {

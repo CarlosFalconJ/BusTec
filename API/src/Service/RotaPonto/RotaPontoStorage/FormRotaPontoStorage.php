@@ -35,4 +35,12 @@ class FormRotaPontoStorage
 
         return $rota_ponto;
     }
+
+    public function getVinculoPorID($id)
+    {
+        $rotaPontoRepository = $this->em->getRepository(RotaPonto::class);
+        $vinculo = $rotaPontoRepository->find($id);
+
+        return is_null($vinculo) ? [] : $vinculo->jsonSerialize();
+    }
 }

@@ -7,7 +7,7 @@ $("#salvar_vinculo-rota-ponto").click(function (e) {
 
     var json =  serializadorDate(data);
 
-    $.post("http://localhost:8080/rota/"+idRota +"/ponto/" + idPonto, json ,function () {
+    $.post("/rota/"+idRota +"/ponto/" + idPonto, json ,function () {
         menssagemDeSucesso('Vinculo realizada com sucesso!!', '/rota/listar-todos');
     }).fail(function (){
         menssagemDeErro('Vinculo não realizado, verifique os dados e tente novamente');

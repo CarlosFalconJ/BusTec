@@ -110,7 +110,8 @@ class RotaRepository extends ServiceEntityRepository
             ->innerJoin(Onibus::class, 'o','with','ro.onibus = o.id')
             ->where(
                 $qb->expr()->eq('r.id', ':rota')
-            )->setParameter('rota' , $rota , Type::INTEGER);
+            )->setParameter('rota' , $rota , Type::INTEGER)
+            ->orderBy('o.placa', 'ASC');
 
         return $qb->getQuery()->getArrayResult();
     }
@@ -126,7 +127,9 @@ class RotaRepository extends ServiceEntityRepository
             ->innerJoin(Ponto::class, 'p', 'with','rp.ponto = p.id')
             ->where(
                 $qb->expr()->eq('r.id', ':rota')
-            )->setParameter('rota' , $rota , Type::INTEGER);
+            )->setParameter('rota' , $rota , Type::INTEGER)
+            ->orderBy('horario', 'ASC');
+
 
         return $qb->getQuery()->getArrayResult();
     }

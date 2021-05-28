@@ -111,6 +111,14 @@ class FormRotaPontoService
         return $rotaPontoInfo;
     }
 
+    public function buscaUmVinculo($id)
+    {
+        $formRotaPontoStorage = new FormRotaPontoStorage($this->em);
+        $vinculo = $formRotaPontoStorage->getVinculoPorID($id);
+
+        return $vinculo;
+    }
+
 
     public function getOnibus($id)
     {

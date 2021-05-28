@@ -6,7 +6,7 @@ $("#salvar-rota-cadastro").click(function (e) {
 
     var json = serializadorRota(nome, cidade);
 
-    $.post("http://localhost:8080/rota", json, function () {
+    $.post("/rota", json, function () {
         menssagemDeSucesso('Rota cadastrada com sucesso!!', '/rota/listar-todos');
     }).fail(function (){
         menssagemDeErro('Rota não cadastrada!!, verifique os dados e tente novamente');

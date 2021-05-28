@@ -8,7 +8,7 @@ $("#salvar-ponto-cadastro").click(function (e) {
 
     var json = serializadorPonto(nome, bairro, rua , ponto_referencia)
 
-    $.post("http://localhost:8080/ponto", json, function () {
+    $.post("/ponto", json, function () {
         menssagemDeSucesso('Ponto cadastrado de sucesso!!', '/ponto/listar-todos')
     }).fail(function (){
         menssagemDeErro('Ponto não cadastrado!!, verifique os dados e tente novamente');

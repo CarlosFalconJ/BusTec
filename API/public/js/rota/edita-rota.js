@@ -1,3 +1,9 @@
+$("#atualizar-rota").ready(function () {
+    $("#nome_rota-atualizar").val(localStorage.getItem('atualizar_nome_rota'));
+    $("#cidade_rota-atualizar").val(localStorage.getItem('atualiza_cidade_rota'));
+
+})
+
 $("#salvar-rota-atualizar").click(function (e) {
     e.preventDefault();
 
@@ -16,7 +22,7 @@ $("#salvar-rota-atualizar").click(function (e) {
 function realizaRequestAtualizaRota(idRota, json) {
     $.ajax({
         type: 'PUT',
-        url: 'http://localhost:8080/rota/' + idRota,
+        url: '/rota/' + idRota,
         contentType: 'application/json',
         data: json
     }).done(function () {

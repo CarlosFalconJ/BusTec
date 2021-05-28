@@ -25,7 +25,7 @@ class OnibusController
     public function insertOnibus(Request $request)
     {
         $dadosEmJSon = json_decode($request->getContent());
-
+      
         $formOnibusService = new FormOnibusService($this->em, $this->dadosDoRequest);
         $onibus = $formOnibusService->cadastrar($dadosEmJSon);
 

@@ -11,3 +11,9 @@ Tcc
 - Execute o comando php bin/console doctrine:migrations:migrate
 - Já pode fazer as requisições
 - Dica: Use o app Postman para fazer as requisições
+
+___
+
+ - Para iniciar o projeto digite:
+    - cd API
+    - php -S 0.0.0.0:8080 -t public
