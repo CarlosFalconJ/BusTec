@@ -20,10 +20,10 @@ class FormPontosMobileService
         $this->extratorRequest = $extratorRequest;
     }
 
-    public function listarPontos ($id)
+    public function listarPontos ()
     {
         $formPontosMobile = new FormPontosMobileStorage($this->em);
-        $listaPontosInfo = $formPontosMobile->listarPonto($id);
+        $listaPontosInfo = $formPontosMobile->listarPonto();
 
         return $listaPontosInfo;
     }

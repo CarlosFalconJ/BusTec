@@ -8,6 +8,7 @@ use App\Helper\ExtratorDadosDoRequest;
 use App\Helper\ResponseHelper;
 use App\Service\mobile\ListarPontosMobile\FormPontosMobileService;
 use Doctrine\ORM\EntityManagerInterface;
+use http\Env\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class PontoMobileController
@@ -23,10 +24,10 @@ class PontoMobileController
         $this->dadosDoRequest = $dadosDoRequest;
     }
 
-    public function listarPontos(int $id)
+    public function listarPontos()
     {
         $formPontoMobileService = new FormPontosMobileService($this->em, $this->dadosDoRequest);
-        $listarPontos  = $formPontoMobileService->listarPontos($id);
+        $listarPontos  = $formPontoMobileService->listarPontos();
 
 
         $response = new ResponseHelper(true, $listarPontos, Response::HTTP_OK );

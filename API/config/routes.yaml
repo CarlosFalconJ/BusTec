@@ -301,6 +301,6 @@ login_mobile_api:
 ## Routes Pontos ##
 
 buscar_um_ponto_mobile:
-   path: mobile/busca/ponto/{id}
+   path: mobile/busca/ponto
    controller: App\Controller\BustecApi\PontoMobileController::listarPontos
    methods: GET

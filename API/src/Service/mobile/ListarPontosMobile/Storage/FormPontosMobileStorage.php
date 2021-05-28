@@ -18,16 +18,14 @@ class FormPontosMobileStorage
         $this->em = $em;
     }
 
-    public function listarPonto($id)
+    public function listarPonto()
     {
         $qb = $this->em->createQueryBuilder();
 
         $qb->select('p.id, p.nome, p.rua, p.bairro, rp.horario as horario')
             ->from(Ponto::class, 'p')
-            ->innerJoin(RotaPonto::class, 'rp', 'WITH', ' rp.ponto = p.id' )
-            ->where(
-                $qb->expr()->eq('p.id', ':ponto')
-            )->setParameter('ponto',$id, Type::INTEGER);
+            ->innerJoin(RotaPonto::class, 'rp', 'WITH', ' rp.ponto = p.id' );
+
 
         $q = $qb->getQuery();
 
