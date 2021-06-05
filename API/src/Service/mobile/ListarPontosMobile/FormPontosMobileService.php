@@ -27,4 +27,12 @@ class FormPontosMobileService
 
         return $listaPontosInfo;
     }
+
+    public function listarPontosNoturno ()
+    {
+        $formPontosMobile = new FormPontosMobileStorage($this->em);
+        $listaPontosInfo = $formPontosMobile->listarPonto();
+
+        return $listaPontosInfo;
+    }
 }
