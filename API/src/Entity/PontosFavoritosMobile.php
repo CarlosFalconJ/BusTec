@@ -23,7 +23,7 @@ class PontosFavoritosMobile implements \JsonSerializable
     private $nome;
 
     /**
-     * @ORM\OneToOne(targetEntity="Ponto")
+     * @ORM\ManyToOne(targetEntity="Ponto")
      * @ORM\JoinColumn(name="id_ponto", referencedColumnName="id", nullable=true)
      */
     private $ponto;

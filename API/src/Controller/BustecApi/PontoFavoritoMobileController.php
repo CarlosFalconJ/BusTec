@@ -24,21 +24,26 @@ class PontoFavoritoMobileController
         $this->dadosDoRequest = $dadosDoRequest;
     }
 
-    public function insertPontoFavorito(int $id_user, int $id_pont_favorito)
+    public function insertPontoFavorito(Request $request, int $id_user, int $id_ponto)
     {
-        $formUserPontoFavoritoService = new FormUserPontoFavoritoService($this->em, $this->dadosDoRequest);
+        $dadosEmJson = json_decode($request->getContent());
+        $formUserPontoFavoritoService = new FormPontoFavoritoService($this->em, $this->dadosDoRequest);
+        $formUserPontoService = new FormUserPontoFavoritoService($this->em, $this->dadosDoRequest);
 
-        $user_pontoF = $formUserPontoFavoritoService->addUserPontoATabela($id_user,  $id_pont_favorito);
+        $id_ponto_favorito = $formUserPontoFavoritoService->cadastrar($dadosEmJson,  $id_ponto);
+
+        $user_pontoF = $formUserPontoService->insert($id_user,  $id_ponto_favorito);
 
         $response = new ResponseHelper(true, $user_pontoF, Response::HTTP_CREATED );
         return $response->getResponse();
     }
 
-    public function vincularUser($id_user, $id_ponto_favorito)
+    public function buscarPontoFavorito(int $id_user)
     {
-        $formUserPontoService = new FormUserPontoFavoritoService($this->em, $this->dadosDoRequest);
+        $formUserPontoService = new FormPontoFavoritoService($this->em, $this->dadosDoRequest);
 
-        $user_pontoF = $formUserPontoService->insert($id_user,  $id_ponto_favorito);
+        $user_pontoF = $formUserPontoService->busca($id_user);
+
         $response = new ResponseHelper(true, $user_pontoF, Response::HTTP_CREATED );
         return $response->getResponse();
     }

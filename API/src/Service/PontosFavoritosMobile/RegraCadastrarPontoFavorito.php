@@ -24,7 +24,7 @@ class RegraCadastrarPontoFavorito
         $pontosFavoritosMobile_info = [];
 
         $this->storage->save($pontosFavoritosMobile);
-        $pontosFavoritosMobile_info = $pontosFavoritosMobile->jsonSerialize();
+        $pontosFavoritosMobile_info = $pontosFavoritosMobile->getId();
 
         return $pontosFavoritosMobile_info;
     }

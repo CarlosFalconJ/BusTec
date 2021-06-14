@@ -27,14 +27,14 @@ class FormPontoFavoritoService
 
     public function cadastrar($dadosEmJSon,  $id_ponto)
     {
-        $formRotaStorage = new FormPontoFavoritoStorage($this->em);
+        $formPontoFavoritoStorage = new FormPontoFavoritoStorage($this->em);
 
-        $add_rota_favorita = $this->addUsuarioPontoFavorito($dadosEmJSon, $id_ponto);
+        $add_ponto_favorito = $this->addUsuarioPontoFavorito($dadosEmJSon, $id_ponto);
 
 
         $user = new RegraCadastrarPontoFavorito();
-        $user->setPontoFavoritoStorage($formRotaStorage);
-        $userInfo = $user->cadastrar($add_rota_favorita);
+        $user->setPontoFavoritoStorage($formPontoFavoritoStorage);
+        $userInfo = $user->cadastrar($add_ponto_favorito);
 
 
         return $userInfo;
@@ -57,6 +57,14 @@ class FormPontoFavoritoService
         return $ponto_favorito;
     }
 
+    public function busca($id_user)
+    {
+        $formRotaStorage = new FormPontoFavoritoStorage($this->em);
+
+        $ponto_favorito = $formRotaStorage->getPontoFavorito($id_user);
+
+        return $ponto_favorito;
+    }
     public function getPonto($id)
     {
         $id = isset($id) ? $id : 0;

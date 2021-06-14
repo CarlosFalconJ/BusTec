@@ -306,11 +306,11 @@ buscar_um_ponto_mobile:
    methods: GET
 
 adicionar_ponto_favorito:
-   path: /mobile/ponto/{id_ponto}/ponto-favorito
+   path: /mobile/{id_user}/ponto/{id_ponto}/ponto-favorito
    controller: App\Controller\BustecApi\PontoFavoritoMobileController::insertPontoFavorito
    methods: POST
 
-vincular_ponto_favorito_user:
-   path: /mobile/{id_user}/ponto-favorito/{id_ponto_favorito}
-   controller: App\Controller\BustecApi\PontoFavoritoMobileController::vincularUser
-   methods: POST
+buscar_ponto_favorito:
+   path: /mobile/{id_user}/ponto-favorito
+   controller: App\Controller\BustecApi\PontoFavoritoMobileController::buscarPontoFavorito
+   methods: GET
