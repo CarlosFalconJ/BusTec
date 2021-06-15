@@ -14,16 +14,19 @@ $("#salvar-onibus-atualizar").click(function (e) {
     var placa = $("#numero_placa_onibus-atualizar").val();
 
     var json = serializadorOnibus(motorista_responsavel, placa);
+
     realizaRequestAtualizaOnibus(idOnibus, json);
 });
 
 function realizaRequestAtualizaOnibus(idOnibus, json) {
+
     $.ajax({
         type: 'PUT',
-        url: 'onibus/' + idOnibus,
+        url: '/onibus/' + idOnibus,
         contentType: 'application/json',
         data: json
     }).done(function () {
+        console.log('teste')
         menssagemDeSucesso('Ônibus atualizado com sucesso!!', '/onibus/listar-todos');
     }).fail(function () {
         menssagemDeErro('Ônibus não atualizado!!, verifique os dados e tente novamente');
