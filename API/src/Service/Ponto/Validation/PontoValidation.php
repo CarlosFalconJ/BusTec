@@ -18,6 +18,8 @@ class PontoValidation
             throw new \Exception("O campo (rua) é inválido",Response::HTTP_BAD_REQUEST);
         }elseif (strlen($dadosEmJson->ponto_referencia) == 0){
             throw new \Exception("O campo (ponto_referencia) é inválido",Response::HTTP_BAD_REQUEST);
+        }elseif (strlen($dadosEmJson->numero) == 0){
+            throw new \Exception("O campo (numero) é inválido",Response::HTTP_BAD_REQUEST);
         }
 
         return $dadosEmJson;

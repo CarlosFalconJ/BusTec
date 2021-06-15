@@ -37,6 +37,11 @@ class Ponto implements \JsonSerializable
      */
     private $ponto_referencia;
 
+    /**
+     * @ORM\Column(type="integer", length=255)
+     */
+    private $numero;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -84,6 +89,16 @@ class Ponto implements \JsonSerializable
         $this->ponto_referencia = $ponto_referencia;
     }
 
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    public function setNumero($numero): void
+    {
+        $this->numero = $numero;
+    }
+
     public function jsonSerialize()
     {
        return [
@@ -91,7 +106,8 @@ class Ponto implements \JsonSerializable
            "nome" => $this->getNome(),
            "bairro" => $this->getBairro(),
            "rua" => $this->getRua(),
-           "ponto_referencia" => $this->getPontoReferencia()
+           "ponto_referencia" => $this->getPontoReferencia(),
+           "numero" => $this->getNumero(),
        ];
     }
 }

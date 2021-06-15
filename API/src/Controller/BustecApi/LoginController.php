@@ -2,7 +2,10 @@
 
 namespace App\Controller\BustecApi;
 
+use App\Entity\LoginAcessToken;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
 use Firebase\JWT\JWT;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,11 +20,16 @@ class LoginController extends AbstractController
     private $repository;
 
     private $encoder;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
 
-    public function __construct(UserRepository $repository, UserPasswordEncoderInterface $encoder)
+    public function __construct(UserRepository $repository, UserPasswordEncoderInterface $encoder,EntityManagerInterface $entityManager)
     {
         $this->repository = $repository;
         $this->encoder = $encoder;
+        $this->entityManager = $entityManager;
     }
 
     public function index(Request $request)
@@ -44,6 +52,13 @@ class LoginController extends AbstractController
         }
 
         $token = JWT::encode(['username' => $user->getUsername()], 'chave', 'HS256');
+
+        $acess = new LoginAcessToken();
+        $acess->setUser($user);
+        $acess->setToken($token);
+
+        $this->entityManager->persist($acess);
+        $this->entityManager->flush();
 
         return new JsonResponse(setcookie(
             'access_token', $token

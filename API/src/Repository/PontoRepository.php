@@ -54,7 +54,7 @@ class PontoRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
 
-        $qb->select('p.id, p.nome, p.bairro, p.rua, p.ponto_referencia')
+        $qb->select('p.id, p.nome, p.bairro, p.rua, p.ponto_referencia, p.numero')
             ->from(Ponto::class, 'p');
 
         return $qb->getQuery()->getArrayResult();

@@ -3,6 +3,7 @@ $("#atualizar-ponto").ready(function () {
     $("#bairro_ponto-atualizar").val(localStorage.getItem('bairro_ponto-atualizar'));
     $("#rua_ponto-atualizar").val(localStorage.getItem   ('rua_ponto-atualizar'));
     $("#ponto_ref_ponto-atualizar").val(localStorage.getItem('ponto_referencia-atualizar'));
+    $("#numero_ponto-atualizar").val(localStorage.getItem('numero_ponto-atualizar'));
 })
 
 
@@ -17,8 +18,9 @@ $("#salvar-ponto-atualizar").click(function (e) {
     var bairro = $("#bairro_ponto-atualizar").val();
     var rua = $("#rua_ponto-atualizar").val();
     var ponto_referencia = $("#ponto_ref_ponto-atualizar").val();
+    var numero = $("#numero_ponto-atualizar").val();
 
-    var json = serializadorPonto(nome, bairro, rua, ponto_referencia);
+    var json = serializadorPonto(nome, bairro, rua, ponto_referencia, numero);
     realizaRequestAtualizaPonto(idPonto, json);
 });
 

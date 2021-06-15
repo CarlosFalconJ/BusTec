@@ -14,6 +14,7 @@ class ParserPonto
         $ponto->setBairro($dadosJson->bairro);
         $ponto->setRua($dadosJson->rua);
         $ponto->setPontoReferencia($dadosJson->ponto_referencia);
+        $ponto->setNumero($dadosJson->numero);
 
         return $ponto;
     }
