@@ -14,6 +14,7 @@ $(".editar_ponto").click(function (e) {
         localStorage.setItem('bairro_ponto-atualizar', conteudoResposta.bairro);
         localStorage.setItem('rua_ponto-atualizar', conteudoResposta.rua);
         localStorage.setItem('ponto_referencia-atualizar', conteudoResposta.ponto_referencia);
+        localStorage.setItem('numero_ponto-atualizar', conteudoResposta.numero);
 
 
     }).fail(function () {

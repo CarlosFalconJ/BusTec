@@ -5,8 +5,9 @@ $("#salvar-ponto-cadastro").click(function (e) {
     var bairro = $("#bairro_ponto-cadastro").val();
     var rua = $("#rua_ponto-cadastro").val();
     var ponto_referencia = $("#ponto_ref_ponto-cadastro").val();
+    var numero = $("#numero_ponto-cadastro").val();
 
-    var json = serializadorPonto(nome, bairro, rua , ponto_referencia)
+    var json = serializadorPonto(nome, bairro, rua , ponto_referencia, numero)
 
     $.post("/ponto", json, function () {
         menssagemDeSucesso('Ponto cadastrado de sucesso!!', '/ponto/listar-todos')
@@ -15,12 +16,13 @@ $("#salvar-ponto-cadastro").click(function (e) {
     })
 });
 
-function serializadorPonto(nome, bairro, rua, ponto_referencia ) {
+function serializadorPonto(nome, bairro, rua, ponto_referencia, numero) {
     var dados =  {
         "nome": nome,
         "bairro": bairro,
         "rua": rua,
         "ponto_referencia": ponto_referencia,
+        "numero": numero,
     }
     var json = JSON.stringify(dados);
 
