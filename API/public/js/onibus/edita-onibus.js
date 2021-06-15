@@ -26,7 +26,6 @@ function realizaRequestAtualizaOnibus(idOnibus, json) {
         contentType: 'application/json',
         data: json
     }).done(function () {
-        console.log('teste')
         menssagemDeSucesso('Ônibus atualizado com sucesso!!', '/onibus/listar-todos');
     }).fail(function () {
         menssagemDeErro('Ônibus não atualizado!!, verifique os dados e tente novamente');
