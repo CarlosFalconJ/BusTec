@@ -17,6 +17,6 @@ class PontoFavorito extends AbstractController
         $id_user = $request->getUser();
 
 
-        $this->redirect('/mobile' . $id_user. '/ponto/' . $id_ponto. '/ponto-favorito', $info);
+        $this->redirectToRoute('/mobile' . $id_user. '/ponto/' . $id_ponto. '/ponto-favorito', [$info]);
     }
 }
