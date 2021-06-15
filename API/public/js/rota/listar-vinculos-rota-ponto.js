@@ -28,11 +28,13 @@ $(".remove_vinculo_rota_ponto").click(function (e){
     let idRota = id[5];
 
     var idVinculo = $(this).data("id-rota-ponto");
+
     mensagemConfirmacao("Deseja excluir esse Vínculo?", funcDeleteVinculoRotaPonto, [idVinculo , idRota]);
 });
 
 
 var funcDeleteVinculoRotaPonto = function requestDeleteVinculo([idVinculos, idRota]) {
+
     $.ajax({
         url: '/rota/ponto/' + idVinculos,
         type: 'DELETE',

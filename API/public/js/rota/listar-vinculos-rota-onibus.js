@@ -28,11 +28,11 @@ $(".remove_vinculo_rota_onibus").click(function (e){
     let idRota = id[5];
 
     var idVinculo = $(this).data("id-rota-onibus");
-    mensagemConfirmacao("Deseja excluir esse Vínculo?", funcDeleteVinculoRotaPonto, [idVinculo , idRota]);
+    mensagemConfirmacao("Deseja excluir esse Vínculo?", funcDeleteVinculoRotaOnibus, [idVinculo , idRota]);
 });
 
 
-var funcDeleteVinculoRotaPonto = function requestDeleteVinculo([idVinculos, idRota]) {
+var funcDeleteVinculoRotaOnibus = function requestDeleteVinculo([idVinculos, idRota]) {
     $.ajax({
         url: '/rota/onibus/' + idVinculos,
         type: 'DELETE',
