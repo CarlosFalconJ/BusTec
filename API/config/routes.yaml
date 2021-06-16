@@ -311,7 +311,7 @@ adicionar_ponto_favorito:
    methods: POST
 
 buscar_ponto_favorito:
-   path: /mobile/{id_user}/ponto-favorito
+   path: /mobile/bascar/ponto-favorito
    controller: App\Controller\BustecApi\PontoFavoritoMobileController::buscarPontoFavorito
    methods: GET
 

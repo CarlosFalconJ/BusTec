@@ -50,8 +50,14 @@ class PontoFavoritoMobileController
         return $response->getResponse();
     }
 
-    public function buscarPontoFavorito(int $id_user)
+    public function buscarPontoFavorito(Request $request)
     {
+        $token =  explode('Bearer ',$request->headers->get('authorization'));
+        $token = $token[1];
+        $repository =  $this->tokenRepository->findOneBy(['token' => $token]);
+
+        $id_user = $repository->getId();
+
         $formUserPontoService = new FormPontoFavoritoService($this->em, $this->dadosDoRequest);
 
         $user_pontoF = $formUserPontoService->busca($id_user);
