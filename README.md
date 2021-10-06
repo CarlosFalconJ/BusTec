@@ -14,6 +14,6 @@ Tcc
 
 ___
 
- - Para iniciar o projeto digite:
+ - Para iniciar o servidor digite:
     - cd API
     - php -S 0.0.0.0:8080 -t public
