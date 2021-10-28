@@ -11,7 +11,7 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new User();
-        $user->setUsername('usuario')
+        $user->setUsername('usuario')->setRoles(['ROLE_USER'])
             ->setPassword('$argon2id$v=19$m=65536,t=4,p=1$qY3IZRf5NBLHlusHn5sTqQ$jv9XaE2iugTtPyS3NX4Nm9OsU1wnUtodjhWPPOQRDbk');
         $manager->persist($user);
 

@@ -28,6 +28,17 @@ security:
             guard:
                 authenticators:
                     - App\Security\JwtAutenticador
+        mobile:
+            pattern: ^\/(?!.*login).*$
+            anonymous: ~
+            form_login:
+                login_path: login_web
+                check_path: base_html
+            logout:
+                target: login_web
+            guard:
+                authenticators:
+                        - App\Security\JwtAutenticador
 
             # activate different ways to authenticate
 

@@ -28,6 +28,12 @@ class LoginAcessToken implements \JsonSerializable
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="UserMobile")
+     * @ORM\JoinColumn(name="id_user_mobile", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $userMobile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,5 +65,21 @@ class LoginAcessToken implements \JsonSerializable
             "token" => $this->getToken(),
             "user" => $this->getUser(),
         ];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserMobile()
+    {
+        return $this->userMobile;
+    }
+
+    /**
+     * @param mixed $userMobile
+     */
+    public function setUserMobile($userMobile): void
+    {
+        $this->userMobile = $userMobile;
     }
 }

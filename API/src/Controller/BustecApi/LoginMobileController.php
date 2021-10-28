@@ -4,7 +4,9 @@
 namespace App\Controller\BustecApi;
 
 
+use App\Entity\LoginAcessToken;
 use App\Repository\UserMobileRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Firebase\JWT\JWT;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,10 +20,13 @@ class LoginMobileController extends AbstractController
 
     private $encoder;
 
-    public function __construct(UserMobileRepository $repository, UserPasswordEncoderInterface $encoder)
+    private $entityManager;
+
+    public function __construct(UserMobileRepository $repository, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager)
     {
         $this->repository = $repository;
         $this->encoder = $encoder;
+        $this->entityManager = $entityManager;
     }
 
     public function index(Request $request)
@@ -43,8 +48,18 @@ class LoginMobileController extends AbstractController
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        $token = JWT::encode(['username' => $user->getUsername()], 'chave', 'HS256');
+        $token = JWT::encode(['username' => $user->getUsername()], 'mobile', 'HS256');
 
-        return new JsonResponse($token, 201);
+        $acess = new LoginAcessToken();
+        $acess->setUserMobile($user);
+        $acess->setToken($token);
+
+        $this->entityManager->persist($acess);
+        $this->entityManager->flush();
+
+        return new JsonResponse(setcookie(
+            'access_token', $token
+        ));
+
     }
 }
