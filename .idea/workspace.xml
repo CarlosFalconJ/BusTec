@@ -3,23 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="dfbde3b2-061c-48eb-b917-b9aefe925c3f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/API/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/Controller/BustecApi/LoginMobileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/Controller/BustecApi/LoginMobileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/src/Entity/LoginAcessToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/Entity/LoginAcessToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/.env" beforeDir="false" afterPath="$PROJECT_DIR$/API/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/API/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/API/config/packages/doctrine.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/API/.env" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -265,6 +265,8 @@
       <option name="presentableId" value="Default" />
       <updated>1620266281781</updated>
       <workItem from="1620266288536" duration="2010000" />
+      <workItem from="1635509321135" duration="1330000" />
+      <workItem from="1635516662712" duration="4167000" />
     </task>
     <servers />
   </component>
